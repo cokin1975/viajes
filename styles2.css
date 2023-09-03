@@ -1,21 +1,14 @@
 .botonAnimado {
-  /* Tus estilos para el botón */
+  padding: 10px 20px;
+  font-size: 16px;
+  background-color: #1E88E5;
+  color: white;
+  border: none;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.3s ease;
 }
 
-.contenedorImagen {
-  max-width: 100%;
-  overflow: hidden;
-}
-
-.imagenAnimada {
-  width: 100%;
-  height: auto;
-  transition: transform 0.3s ease;
-}
-
-@media (max-width: 768px) {
-  .imagenAnimada {
-    width: 100%;
-    height: auto;
-  }
+.botonAnimado:hover {
+  background-color: #FF0000;
+  transform: scale(1.1);
 }
