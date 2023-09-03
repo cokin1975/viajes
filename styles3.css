@@ -1,19 +1,1 @@
 
-
-.contenedorImagen {
-  max-width: 100%;
-  overflow: hidden;
-}
-
-.imagenAnimada {
-  width: 100%;
-  height: auto;
-  transition: transform 0.3s ease;
-}
-
-@media (max-width: 768px) {
-  .imagenAnimada {
-    width: 100%;
-    height: auto;
-  }
-}
