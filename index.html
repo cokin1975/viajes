@@ -2,40 +2,69 @@
 <html>
 <head>
     <link rel="stylesheet" type="text/css" href="styles2.css">
-</head>
-<body>
-  <button class="botonAnimado">ZELDA </button>
-  <link rel="stylesheet" type="text/css" href="styles2.css">
-</head>
-<body>
-  <button class="botonAnimado">MARIO BROS</button>
-  <link rel="stylesheet" type="text/css" href="styles2.css">
-</head>
-<body>
-  <button class="botonAnimado">DONKEY KONG</button>
-  <button class="botonAnimado">MINECRAFT</button>
-  <button class="botonAnimado">STARWARS</button>
 
+  <button class="botonAnimado" id="zeldaButton">ZELDA</button>
+  <button class="botonAnimado" id="marioButton">MARIO BROS</button>
+  <button class="botonAnimado" id="donkeyKongButton">DONKEY KONG</button>
+  <button class="botonAnimado" id="minecraftButton">MINECRAFT</button>
+  <button class="botonAnimado" id="starWarsButton">STARWARS</button>
 
-</body>
-</html>
+</head>
+
 <!DOCTYPE html>
 
 
 <html>
 <head>
-  <link rel="stylesheet" type="text/css" href="styles3.css">
+  <link rel="stylesheet" type="text/css" href="styles4.css">
 </head>
+</html>
 <body>
   <div class="contenedorImagen">
     <img src="mario.jpg" class="imagenAnimada">
   </div>
-  <audio autoplay loop muted> 
-    <source src="mariomp3.mp3" type="audio/mp3">
-  </audio>
-  <audio id="miAudio">
-    <source src="mariomp3.mp3" type="audio/mp3">
-  </audio>
-  <script src="script5.js"></script>
+  
+</body>
+
+   
 </body>
 </html>
+
+ <audio id="audioPlayer" controls style="display: none;"></audio>
+  
+  <script>
+    document.addEventListener("DOMContentLoaded", function() {
+      const audioPlayer = document.getElementById("audioPlayer");
+
+      document.getElementById("zeldaButton").addEventListener("click", function() {
+        audioPlayer.src = "zelda.mp3";
+        audioPlayer.play();
+      });
+
+      document.getElementById("marioButton").addEventListener("click", function() {
+        audioPlayer.src = "mario.mp3";
+        audioPlayer.play();
+      });
+
+      document.getElementById("donkeyKongButton").addEventListener("click", function() {
+        audioPlayer.src = "donkey-kong.mp3";
+        audioPlayer.play();
+      });
+
+      document.getElementById("minecraftButton").addEventListener("click", function() {
+        audioPlayer.src = "minecraft.mp3";
+        audioPlayer.play();
+      });
+
+      document.getElementById("starWarsButton").addEventListener("click", function() {
+        audioPlayer.src = "starwars.mp3";
+        audioPlayer.play();
+      });
+    });
+  </script>
+
+
+
+</body>
+</html>
+
