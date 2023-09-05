@@ -1,0 +1,182 @@
+@font-face {
+  font-family: logofont;
+  src: url(https://s3-us-west-2.amazonaws.com/s.cdpn.io/531144/couture-bld.otf);
+}
+
+body {
+  margin: 0px;
+  background: #EF5350;
+}
+
+.logo {
+  transform: scale(0.7);
+  margin-top: 45px;
+}
+
+.switch-left {
+  position: fixed;
+  background: transparent;
+  width: 130px;
+  height: 380px;
+  border-radius: 100px 5px 5px 100px;
+  border: 35px solid #fff;
+  transform: translate(calc(50vw - 217px), calc(50vh - 225px));
+  animation: switch-left-animation 1.75s ease;
+}
+
+.pad-left {
+  position: fixed;
+  width: 80px;
+  height: 80px;
+  background: #fff;
+  border-radius: 100%;
+  margin-top: 45px;
+  margin-left: 27.5px;
+}
+
+.switch-right {
+  position: fixed;
+  background: #fff;
+  width: 185px;
+  height: 450px;
+  border-radius: 5px 100px 100px 5px;
+  transform: translate(calc(50vw + 17px), calc(50vh - 225px));
+  animation: switch-right-animation 1.75s ease;
+}
+
+.pad-right {
+  position: fixed;
+  width: 80px;
+  height: 80px;
+  background: #EF5350;
+  border-radius: 100%;
+  margin-top: 225px;
+  margin-left: 50px;
+}
+
+.line {
+  width: 6px;
+  height: 100vh;
+  position: fixed;
+  background: white;
+  top: 0;
+  left: calc(50vw - 3px);
+  opacity: 0.25;
+}
+
+.nintendo-text {
+  font-family: logofont;
+  font-size: 80px;
+  color: #fff;
+  letter-spacing: 19px;
+  position: fixed;
+  transform: translate(calc(50vw - 288px), calc(50vh + 175px));
+}
+
+.switch-text {
+  font-family: logofont;
+  font-size: 124px;
+  color: #fff;
+  letter-spacing: 13px;
+  position: fixed;
+  transform: translate(calc(50vw - 290px), calc(50vh + 200px));
+}
+
+.text {
+  animation: text-animation 1.75s ease;
+  position: fixed;
+}
+
+.clack-svg {
+  width: 150px;
+  height: 150px;
+  background: rgba(255,255,255,0);
+  position: fixed;
+  transform: translate(calc(50vw + 125px), calc(50vh - 315px)) rotate(-5deg);
+  animation: bodyclack 1.75s ease;
+}
+
+.clack-svg > line {
+  stroke: #fff;;
+  stroke-width: 7;
+  stroke-dasharray: 100;
+  stroke-dashoffset: -100;
+  opacity: 0;
+  animation: clack 1.75s linear;
+}
+
+.reload {
+  position: fixed;
+  width: 75px;
+  height: 75px;
+  border-radius: 5px;
+  left: calc(50vw - 37.5px);
+  bottom: calc(50vh - 345px);
+  cursor: pointer;
+  transition: background 0.3s ease;
+  animation: reload-animation 2.5s ease;
+}
+
+.reload:hover {
+  background: rgba(0,0,0,0.1)
+}
+
+.reload > path {
+  fill: #fff;
+}
+
+@-webkit-keyframes switch-left-animation {
+  0% {transform: translate(calc(50vw - 217px), calc(50vh - 225px));}
+  73% {transform: translate(calc(50vw - 217px), calc(50vh - 225px));}
+  85% {transform: translate(calc(50vw - 217px), calc(50vh - 195px));}
+}
+
+@-webkit-keyframes switch-right-animation {
+  0% {transform: translate(calc(50vw + 17px), calc(50vh - 310px));}
+  25% {transform: translate(calc(50vw + 17px), calc(50vh - 310px));}
+  50% {transform: translate(calc(50vw + 17px), calc(50vh - 325px));}
+  65% {transform: translate(calc(50vw + 17px), calc(50vh - 325px));}
+  85% {transform: translate(calc(50vw + 17px), calc(50vh - 195px));}
+}
+
+@-webkit-keyframes text-animation {
+  0% {transform: translate(0px, 0px); opacity:0;}
+  70% {}
+  75% {transform: translate(0px, 0px);opacity: 0;}
+  85% {transform: translate(0px, 15px);}
+}
+
+@-webkit-keyframes clack {
+  0% {stroke-dashoffset: 100;}
+  75% {stroke-dashoffset: 100; opacity: 0;}
+  83% {opacity: 1}
+  87% {stroke-dashoffset: 0;}
+  93% {opacity: 1;}
+  100% {stroke-dashoffset: -100; opacity: 0;}
+}
+
+@-webkit-keyframes reload-animation {
+  0% {opacity: 0;}
+  75% {opacity: 0;}
+}
+
+@media screen and (max-width: 720px) {
+  .logo {
+    transform: scale(0.3);
+    margin-top: 60px;
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .logo {
+    transform: scale(0.5);
+    margin-top: 45px;
+  }
+}
+
+@media screen and (max-height: 420px) {
+  .logo {
+    transform: scale(0.45);
+    margin-top: 65px;
+  }
+}

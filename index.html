@@ -1,70 +1,41 @@
-<!DOCTYPE html>
-<html>
+<!doctype html>
+<!--[if lte IE 9]>
+<html lang="en" class="oldie">
+<![endif]-->
+<!--[if gt IE 9]><!-->
+<html lang="en">
+<!--<![endif]-->
 <head>
-    <link rel="stylesheet" type="text/css" href="styles2.css">
-
-  <button class="botonAnimado" id="zeldaButton">ZELDA</button>
-  <button class="botonAnimado" id="marioButton">MARIO BROS</button>
-  <button class="botonAnimado" id="donkeyKongButton">DONKEY KONG</button>
-  <button class="botonAnimado" id="minecraftButton">MINECRAFT</button>
-  <button class="botonAnimado" id="starWarsButton">STARWARS</button>
-
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Switch Logo</title>
+  <link rel="stylesheet" media="all" href="style.css" />
 </head>
-
-<!DOCTYPE html>
-
-
-<html>
-<head>
-  <link rel="stylesheet" type="text/css" href="styles3.css">
-</head>
-</html>
 <body>
-  <div class="contenedorImagen">
-    <img src="mario.jpg" class="imagenAnimada">
+<div class="logo">
+  <div class="switch-left">
+    <div class="pad-left"></div>
   </div>
-  
-</body>
-
-   
-</body>
-</html>
-
- <audio id="audioPlayer" controls style="display: none;"></audio>
-  
+  <div class="switch-right">
+    <div class="pad-right"></div>
+  </div>
+  <div class="text">
+    <p class="nintendo-text">NINTENDO</p>
+    <p class="switch-text">SWITCH</p>
+  </div>
+  <svg class="clack-svg">
+    <line x1="25" y1="90" x2="50" y2="15" stroke-linecap="round"/>
+    <line x1="47" y1="107" x2="120" y2="30" stroke-linecap="round"/>
+    <line x1="65" y1="130" x2="137" y2="100" stroke-linecap="round"/>
+  </svg>
+</div>
+<svg onclick="reloadPage()" class="reload" viewBox="0 0 24 24">
+    <path d="M19,12H22.32L17.37,16.95L12.42,12H16.97C17,10.46 16.42,8.93 15.24,7.75C12.9,5.41 9.1,5.41 6.76,7.75C4.42,10.09 4.42,13.9 6.76,16.24C8.6,18.08 11.36,18.47 13.58,17.41L15.05,18.88C12,20.69 8,20.29 5.34,17.65C2.22,14.53 2.23,9.47 5.35,6.35C8.5,3.22 13.53,3.21 16.66,6.34C18.22,7.9 19,9.95 19,12Z" />
+  </svg>
   <script>
-    document.addEventListener("DOMContentLoaded", function() {
-      const audioPlayer = document.getElementById("audioPlayer");
-
-      document.getElementById("zeldaButton").addEventListener("click", function() {
-        audioPlayer.src = "zelda.mp3";
-        audioPlayer.play();
-      });
-
-      document.getElementById("marioButton").addEventListener("click", function() {
-        audioPlayer.src = "mario.mp3";
-        audioPlayer.play();
-      });
-
-      document.getElementById("donkeyKongButton").addEventListener("click", function() {
-        audioPlayer.src = "donkey-kong.mp3";
-        audioPlayer.play();
-      });
-
-      document.getElementById("minecraftButton").addEventListener("click", function() {
-        audioPlayer.src = "minecraft.mp3";
-        audioPlayer.play();
-      });
-
-      document.getElementById("starWarsButton").addEventListener("click", function() {
-        audioPlayer.src = "starwars.mp3";
-        audioPlayer.play();
-      });
-    });
+    function reloadPage() {
+      location.reload();
+    }
   </script>
-
-
-
 </body>
 </html>
-
