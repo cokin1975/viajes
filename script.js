@@ -83,4 +83,36 @@ loadMoreBtn3.onclick = () => {
     if(currentItem3 >= boxes.length) {
         loadMoreBtn3.style.display = 'none'
     }
+
 }
+
+// Obtener elementos del DOM
+const menuToggle = document.getElementById("menu-toggle");
+const menuIcono = document.querySelector(".menu-icono");
+const navbar = document.querySelector(".navbar");
+
+// Agregar un event listener para el cambio de estado del checkbox
+menuToggle.addEventListener("change", function () {
+    if (menuToggle.checked) {
+        // Si el checkbox está marcado, muestra el menú
+        navbar.style.display = "block";
+    } else {
+        // Si el checkbox no está marcado, oculta el menú
+        navbar.style.display = "none";
+    }
+});
+
+// Agregar un event listener para cerrar el menú haciendo clic en el icono del menú
+menuIcono.addEventListener("click", function () {
+    menuToggle.checked = false; // Desmarca el checkbox
+    navbar.style.display = "none"; // Oculta el menú
+});
+
+
+
+
+
+
+
+
+   

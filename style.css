@@ -1,19 +1,34 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap');
 
 * {
-    margin: 0;
+    margin:0;
     padding: 0;
+    margin-top: 0px;
+    margin-right: 0px;
+    margin-bottom: 0px;
+    margin-left: 0px;
+    
     box-sizing: border-box;
     text-decoration: none;
 }
 
 body {
     font-family: 'Poppins', sans-serif;
-    background-color: #101116;
+    background-color: #101116
+    margin:  auto;
+    border: 1px solid #ccc; /* Agregar un borde gris */
+    border-top-width: 1px;
+    border-right-width: 1px;
+    border-bottom-width: 50px;
+    border-left-width: 1px
+    margin-top: 150px;
+    margin-right: 0px;
+    margin-bottom: 0px;
+    margin-left: 0px;
 }
 
 header {
-    background-image: url(images/bg.jpg);
+    background-image: url(images/blu.jpg);
     background-position: center center;
     background-repeat: no-repeat;
     background-size: cover;
@@ -21,22 +36,34 @@ header {
 
 .container {
     max-width: 1200px;
-    margin: 0 auto;
-}
+    margin:  auto;
+    background-color:
+    
+}   
 
-.menu {
-    position: absolute;
-    top: 20px;
-    left: 0;
-    right: 0;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    z-index: 1000;
+    .menu {
+        
+        position: absolute;
+        top: -10px;
+        left: 0px;
+        right: 0;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        z-index: 1000;
+         /* Color de fondo azul, puedes cambiarlo a tu elección */
+    padding: 10x 20px; /* Agregar relleno para espaciar el contenido del menú */
+    color: #fff; /* Color del texto en el menú */
 }
+    
 
 .logo {
-    width: 150px;
+    width: 250px;
+    padding-top: 20px;
+    padding-right: 20px;
+    padding-bottom: 20px;
+    padding-left: 20px
+    right: 0 px;
 }
 
 .menu .navbar ul {
@@ -49,15 +76,23 @@ header {
 }
 
 .menu .navbar ul li a {
-    font-size: 18px;
+    font-size: 25px;
     padding: 20px;
     color: #FDFDFD;
     display: block;
     text-transform: uppercase;
+    padding-top: 20px;
+    padding-right: 40px;
+    padding-bottom: 10px;
+    padding-left: 40px
+    margin-top: -20px;
+    margin-right: 0px;
+    margin-bottom: 0px;
+    margin-left: 40px;
 }
 
 .menu .navbar ul li a:hover {
-    color: #E70B25;
+    color: #f3eced;
 }
 
 #menu {
@@ -76,33 +111,39 @@ header {
 .header-content {
     display: flex;
     align-items: center;
-    padding: 200px 0 150px 0;
+    padding: 150px 100 100px 150;
 }
 
 .header-txt {
     width: 40%;
     padding-right: 25px;
+    text-align: justify;
+    font-family: 'Poppins', sans-serif;
+
 }
 
 .header-txt h1 {
-    font-size: 55px;
-    line-height: 70px;
+    font-size: 25px;
+    line-height: 220px;
     font-weight: 800;
-    color: #FDFDFD;
-    margin-bottom: 25px;
+    color: #141414;
+    margin-bottom: -50px;
 }
 
 .header-txt p {
     font-size: 18px;
-    color: #A0A0A0;
+    color: #0f0f0f;
 }
 
+
 .header-img {
-    width: 60%;
+    width: 50%;
 }
 
 .hamburger {
-    width: 100%;
+    width: 650px;;
+    margin-top: 200px
+    
 }
 
 .botones {
@@ -110,7 +151,7 @@ header {
     margin-top: 50px;
 }
 
-.btn-1 {
+.btn-1 
     display: inline-block;
     background: linear-gradient(90deg, #E70B25 0%, #900314 100%);
     padding: 10px 35px;
@@ -128,7 +169,7 @@ header {
     border-radius: 25px;
 }
 
-.btn-1:hover {
+.btn-1:hover 
     background: linear-gradient(90deg, #f3031f 0%, #bc0217 100%);
 }
 
@@ -154,6 +195,7 @@ header {
 .product {
     display: flex;
     position: relative;
+    
 }
 
 .hoja {
@@ -169,7 +211,7 @@ header {
 }
 
 .tab {
-    margin-right: 20px;
+    margin-right: 100px;
     text-align: center;
     padding: 10px 35px;
     border-radius: 25px;
@@ -181,8 +223,8 @@ header {
 }
 
 .tab.active {
-    background: linear-gradient(90deg,#E70B25 0%, #900314 100%);
-    color: #FDFDFD;
+    background: linear-gradient(90deg,#ec130c 0%, #ee3e12 100%);
+    color: #ffffff;
 }
 
 .tab.active::after {
@@ -210,7 +252,7 @@ header {
 .box-1,
 .box-2,
 .box-3 {
-    background-image: url(images/bg-p.jpg);
+    background-image: url(images/rojo.jpg);
     background-position: center center;
     background-repeat: no-repeat;
     background-size: cover;
@@ -323,7 +365,7 @@ header {
 }
 
 .info {
-    background-image: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url(images/bg-info.jpg);
+    background-image: linear-gradient(rgba(255, 253, 253, 0.5), rgba(255, 253, 253, 0.5)), url(images/bg-info.jpg);
     background-position: center center;
     background-repeat: no-repeat;
     background-size: cover;
@@ -431,10 +473,9 @@ header {
 }
 
 
-@media(max-width: 991px ) {
-
+@media(max-width: 500px ) {
     .menu {
-        padding: 20px;
+        padding: -40px;
     }
 
     .menu label {
@@ -464,8 +505,8 @@ header {
     }
 
     .header-content {
-        flex-direction: column;
-        padding: 180px 30px 30px 30px;
+        flex-direction: row;
+        padding: 1000px 30px 30px 30px;
     }
 
     .header-txt {
@@ -581,6 +622,7 @@ header {
         flex-direction: column;
         align-items: center;
         text-align: center;
+        background-color: #ffffff;
     }
 
 
@@ -591,3 +633,33 @@ header {
 
 
 }
+
+.boton-menu {
+    display: inline-block;
+    padding: 10px 20px;
+    background-color: #1d1f20;
+    color: #fff;
+    text-decoration: none;
+    transition: background-color 0.3s ease;
+    font-weight: bold; /* Hace las letras más anchas */
+        font-family: 'Roboto', sans-serif; /* Fuente moderna */
+        text-transform: uppercase; /* Convierte el texto en mayúsculas */
+        
+    
+}
+
+.boton-menu:hover {
+    background-color: #f02d14;
+}
+
+
+.header-image {
+    text-align: center; /* Centrar horizontalmente el contenido */
+    width: 100%; /* Ancho del encabezado (ajusta según tus necesidades) */
+}
+
+.header-image img {
+    margin: 0 auto; /* Centrar horizontalmente la imagen */
+    /* Añade otros estilos según sea necesario para la imagen */
+}.menu-nav
+
