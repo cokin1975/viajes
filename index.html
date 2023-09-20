@@ -379,38 +379,7 @@ body {
       cartTotal.textContent = `Total: ${totalPrice} pesos`;
     });
   });
-
-  checkoutButton.addEventListener('click', function() {
-    if (cart.length === 0) {
-      alert("Tu carrito está vacío");
-    } else {
-      alert("Procediendo al pago");
-      // Aquí puedes añadir lógica para realizar el checkout
-    }
-  });
-
-  const clearCartButton = document.getElementById('clear-cart');
-
-clearCartButton.addEventListener('click', function() {
-  cart.length = 0; // Vacía el array del carrito
-  cartContainer.textContent = "Elementos en el carrito: 0"; // Actualiza el contador de elementos
-  cartTotal.textContent = "Total: 0 pesos"; // Resetea el total
-  alert("El carrito ha sido vaciado"); // Muestra una alerta
-});
- 
-checkoutButton.addEventListener('click', function() {
-  if (cart.length === 0) {
-    alert("Tu carrito está vacío");
-  } else {
-    let printContent = "<h1>Resumen de Compra</h1>";
-
-    let totalPrice = 0;
-    cart.forEach((item) => {
-      printContent += `${item.name} - ${item.quantity} x ${item.price} pesos<br>`;
-      totalPrice += item.price * item.quantity;
-    });
-
-   // Tu carrito y otras variables previas aquí
+// Tu carrito y otras variables previas aquí
 
 checkoutButton.addEventListener('click', function() {
   if (cart.length === 0) {
@@ -434,7 +403,8 @@ checkoutButton.addEventListener('click', function() {
       printWindow.print();
     }
   }
-}); 
+});
+   
       </script>
 
 </body>
