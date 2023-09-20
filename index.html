@@ -69,25 +69,32 @@
       background-image: linear-gradient(to right, #007BFF, #00C6FF);
       color: white;
     }
-    .product-card {
-      display: flex;
-      border: 1px solid #ccc;
-      padding: 10px;
-      border-radius: 4px;
-      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-      margin: 10px;
-    }
+     #product-container {
+  max-width: 300px; /* Establece el ancho máximo del contenedor */
+  margin: 0 auto; /* Centra el contenedor en la pantalla */
+  padding: 10px; /* Agrega un espacio de relleno alrededor del contenedor */
+}
 
-    .product-image {
-      width: 150px;
-      height: 150px;
-      object-fit: cover;
-    }
+.product-card {
+  border: 1px solid #ddd; /* Añade un borde alrededor de la tarjeta del producto */
+  border-radius: 4px; /* Agrega esquinas redondeadas a la tarjeta */
+  margin-bottom: 20px; /* Espaciado entre las tarjetas de producto */
+}
 
-    .product-info {
-      margin-left: 10px;
-      flex-grow: 1;
-    }
+.product-image {
+  max-width: 100%; /* La imagen se ajustará al ancho de su contenedor */
+  height: auto; /* Mantendrá la proporción de la imagen */
+}
+
+.product-info {
+  padding: 10px; /* Agrega espacio de relleno alrededor del contenido */
+}
+
+.product-price {
+  font-weight: bold; /* Hace que el precio sea negrita para resaltarlo */
+}
+
+
 
     .add-to-cart {
       background-color: #007BFF;
