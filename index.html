@@ -409,8 +409,6 @@ checkoutButton.addEventListener('click', function() {
       totalPrice += item.price * item.quantity;
     });
 
-    printContent += `<br>Total: ${totalPrice} pesos`;
-
     const printWindow = window.open("", "_blank");
 printWindow.document.open();
 printWindow.document.write(`
@@ -440,7 +438,6 @@ printWindow.document.close();
 printWindow.onload = function() {
   printWindow.print();
 }
-
       </script>
 
 </body>
