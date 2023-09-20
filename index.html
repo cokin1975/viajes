@@ -178,14 +178,15 @@
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2); /* Añade una sombra sutil */
 }
 body {
-            font-family: 'Arial', sans-serif;
-          }
-          .item {
-            font-weight: normal;
-          }
-          .total {
-            font-weight: bold;
-          }
+          font-family: 'Arial', sans-serif;
+        }
+        h1 {
+          font-size: 36px;
+          color: #333;
+        }
+        p {
+          font-size: 18px;
+        }
   </style>
 </head>
 <header>
@@ -409,35 +410,31 @@ checkoutButton.addEventListener('click', function() {
       totalPrice += item.price * item.quantity;
     });
 
+   // Tu carrito y otras variables previas aquí
+
+checkoutButton.addEventListener('click', function() {
+  if (cart.length === 0) {
+    alert("Tu carrito está vacío");
+  } else {
+    let printContent = "<h1>Resumen de Compra</h1>";
+
+    let totalPrice = 0;
+    cart.forEach((item) => {
+      printContent += `${item.name} - ${item.quantity} x ${item.price} pesos<br>`;
+      totalPrice += item.price * item.quantity;
+    });
+
+    printContent += `<br>Total: ${totalPrice} pesos`;
+
     const printWindow = window.open("", "_blank");
-printWindow.document.open();
-printWindow.document.write(`
-  <html>
-    <head>
-      <title>Resumen de Compra</title>
-      <style>
-        body {
-          font-family: 'Arial', sans-serif;
-        }
-        h1 {
-          font-size: 36px;
-          color: #333;
-        }
-        p {
-          font-size: 18px;
-        }
-      </style>
-    </head>
-    <body>
-      <h1>Resumen de tu Compra</h1>
-      ${printContent}
-    </body>
-  </html>
-`);
-printWindow.document.close();
-printWindow.onload = function() {
-  printWindow.print();
-}
+    printWindow.document.open();
+    printWindow.document.write(`<html><head><title>Resumen de Compra</title></head><body>${printContent}</body></html>`);
+    printWindow.document.close();
+    printWindow.onload = function() {
+      printWindow.print();
+    }
+  }
+}); 
       </script>
 
 </body>
