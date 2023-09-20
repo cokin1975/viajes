@@ -412,14 +412,34 @@ checkoutButton.addEventListener('click', function() {
     printContent += `<br>Total: ${totalPrice} pesos`;
 
     const printWindow = window.open("", "_blank");
-    printWindow.document.open();
-    printWindow.document.write(`<html><head><title>Resumen de Compra</title></head><body>${printContent}</body></html>`);
-    printWindow.document.close();
-    printWindow.onload = function() {
-      printWindow.print();
-    }
-  }
-});
+printWindow.document.open();
+printWindow.document.write(`
+  <html>
+    <head>
+      <title>Resumen de Compra</title>
+      <style>
+        body {
+          font-family: 'Arial', sans-serif;
+        }
+        h1 {
+          font-size: 36px;
+          color: #333;
+        }
+        p {
+          font-size: 18px;
+        }
+      </style>
+    </head>
+    <body>
+      <h1>Resumen de tu Compra</h1>
+      ${printContent}
+    </body>
+  </html>
+`);
+printWindow.document.close();
+printWindow.onload = function() {
+  printWindow.print();
+}
 
       </script>
 
