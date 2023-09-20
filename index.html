@@ -1,691 +1,423 @@
 <!DOCTYPE html>
-<html lang="es">
-
+<html>
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Pagina</title>
-    <link rel="stylesheet" href="style.css">
+   
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap" rel="stylesheet">
+  <style>
+    .header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      background-color: #dd1c1c;
+      padding: 10px;
+      color: white;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    }
+
+    .logo {
+  font-size: 36px;
+  font-weight: bold;
+  background: -webkit-linear-gradient(left, #087fff, #dfe2eb);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  
+  transform: skewX(-10deg);
+  transition: transform 0.3s ease;
+}
+
+.logo:hover {
+  transform: skewX(0deg);
+}
+      
+    
+
+    .search-box {
+      flex-grow: 1;
+      margin:0 15px;
+    }
+
+    .search-box input[type="text"] {
+      width: 90%;
+      padding: 10px;
+      border: none;
+      border-radius: 4px;
+      float: left;
+    }
+
+    .menu-icons {
+      display: flex;
+      gap: 15px;
+    }
+
+    .menu-icons a {
+      display: inline-block;
+      color: white;
+      text-decoration: none;
+      font-size: 18px;
+      padding: 10px 20px;
+      border-radius: 4px;
+      background-color: white;
+      color: #333;
+      transition: background-image 0.3s ease;
+    }
+
+    .menu-icons a:hover {
+      background-image: linear-gradient(to right, #007BFF, #00C6FF);
+      color: white;
+    }
+    .product-card {
+      display: flex;
+      border: 1px solid #ccc;
+      padding: 10px;
+      border-radius: 4px;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+      margin: 10px;
+    }
+
+    .product-image {
+      width: 150px;
+      height: 150px;
+      object-fit: cover;
+    }
+
+    .product-info {
+      margin-left: 10px;
+      flex-grow: 1;
+    }
+
+    .add-to-cart {
+      background-color: #007BFF;
+      color: white;
+      padding: 10px;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+    }
+
+    .add-to-cart:hover {
+      background-color: #0056b3;
+    }
+    .navbar {
+      background-color: #ff0000; /* Rojo */
+      overflow: hidden;
+      font-size: 18px;
+      
+    }
+
+    .navbar a {
+      float: left;
+      display: block;
+      color: white;
+      text-align: center;
+      padding: 14px 16px;
+      text-decoration: none;
+      border-radius: 8px;
+    }
+
+    .navbar a:hover {
+      background-color: #0000ff; /* Azul */
+      color: white;
+    }
+    
+    product-price {
+      font-size: 1.2em;
+      font-weight: bold;
+    }
+    .product-quantity {
+      display: flex;
+      align-items: center;
+      margin-top: 10px;
+    }
+    .quantity-input {
+      width: 50px;
+      margin-left: 10px;
+    }
+
+    #checkout {
+  background-color: red;
+  color: white;
+  padding: 12px 24px;
+  border: none;
+  border-radius: 8px;
+  font-size: 18px;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+#checkout:hover {
+  background-color: blue;
+  transform: scale(1.05); /* Hace el botón un poco más grande */
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2); /* Añade una sombra sutil */
+}
+
+#cart-container, #cart-total {
+  font-family: 'Poppins', sans-serif;
+  font-weight: bold;
+}
+
+#clear-cart {
+  background-color: rgb(22, 21, 21);
+  color: white;
+  padding: 12px 24px;
+  border: none;
+  border-radius: 8px;
+  font-size: 18px;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+
+#clear-cart:hover {
+  background-color: rgb(67, 121, 121);
+  transform: scale(1.05); /* Hace el botón un poco más grande */
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2); /* Añade una sombra sutil */
+}
+body {
+            font-family: 'Arial', sans-serif;
+          }
+          .item {
+            font-weight: normal;
+          }
+          .total {
+            font-weight: bold;
+          }
+  </style>
 </head>
+<header>
+    <div class="header">
+  <div class="logo">Laredo Toner</div>
+  <div class="search-box">
+    <input type="text" placeholder="Buscar productos...">
+  </div>
+  <div class="menu-icons">
+    <a href="#">Carrito</a>
+    <a href="#">Perfil</a>
+  </div>
+</div>
+</header>
+</html>
 
 <body>
+   
+    
+    <div class="navbar">
+        <a href="#Impresoras">Impresoras</a>
+        <a href="#Computadoras">Computadoras</a>
+        <a href="#Refacciones">Refacciones</a>
+        <a href="#Toner">Toner</a>
+        <a href="#Impresoras2">Impresoras</a>
+      </div>
+      
+      
 
-    <header>
+      <div id="cart-container">Elementos en el carrito: 0</div>
+<div id="cart-total">Total: 0 pesos</div>
+<button id="checkout">Comprar ahora</button>
+<button id="clear-cart">Vaciar Carrito</button>
+<div id="summary-modal" style="display: none;">
+    <h1>Resumen de Compra</h1>
+    <div id="summary-content"></div>
+    <button id="print-button">Imprimir</button>
+  </div>
 
-        <input type="checkbox" id="menu-toggle">
-<label for="menu-toggle" class="menu-icono">&#9776;</label>
-
-        <div class="menu container">
-            <a href="#"><img src="images/hp.png" class="logo" alt=""></a>
-            <input type="checkbox" id="menu">
-            <label for="menu"><img src="images/menu3.png" class="menu-icono" alt=""></label>
-            <nav class="navbar">
-                <ul>
-                    <li><a href="#" class="boton-menu">Inicio</a></li>
-                    <li><a href="#" class="boton-menu">Servicios</a></li>
-                    <li><a href="#" class="boton-menu">Productos</a></li>
-                    <li><a href="#" class="boton-menu">Contacto</a></li>
-                </ul>
-            </nav>
+      
+      <div id="product-container">
+        <div class="product-card">
+          <img class="product-image" src="https://via.placeholder.com/150" alt="Product Image">
+          <div class="product-info">
+            <h2>Nombre del Producto</h2>
+            <p>Esta es una descripción detallada del producto.</p>
+            <div class="product-price">50 pesos</div>
+            <div class="product-quantity">
+              Cantidad:
+              <input class="quantity-input" type="number" min="1" value="1">
+            </div>
+          </div>
+          <button class="add-to-cart">Añadir al Carrito</button>
         </div>
+      </div>
+      <div id="product-container">
+        <div class="product-card">
+          <img class="product-image" src="https://via.placeholder.com/150" alt="Product Image">
+          <div class="product-info">
+            <h2>toner hp 83a</h2>
+            <p>Esta es una descripción detallada del producto.</p>
+            <div class="product-price">50 pesos</div>
+            <div class="product-quantity">
+              Cantidad:
+              <input class="quantity-input" type="number" min="1" value="1">
+            </div>
+          </div>
+          <button class="add-to-cart">Añadir al Carrito</button>
+        </div>
+      </div>
+      
+      <div id="product-container">
+        <div class="product-card">
+          <img class="product-image" src="https://via.placeholder.com/150" alt="Product Image">
+          <div class="product-info">
+            <h2>Nombre del Producto</h2>
+            <p>Esta es una descripción detallada del producto.</p>
+            <div class="product-price">50 pesos</div>
+            <div class="product-quantity">
+              Cantidad:
+              <input class="quantity-input" type="number" min="1" value="1">
+            </div>
+          </div>
+          <button class="add-to-cart">Añadir al Carrito</button>
+        </div>
+      </div>
+      <div id="product-container">
+        <div class="product-card">
+          <img class="product-image" src="https://via.placeholder.com/150" alt="Product Image">
+          <div class="product-info">
+            <h2>Nombre del Producto</h2>
+            <p>Esta es una descripción detallada del producto.</p>
+            <div class="product-price">50 pesos</div>
+            <div class="product-quantity">
+              Cantidad:
+              <input class="quantity-input" type="number" min="1" value="1">
+            </div>
+          </div>
+          <button class="add-to-cart">Añadir al Carrito</button>
+        </div>
+      </div>
+      <div id="product-container">
+        <div class="product-card">
+          <img class="product-image" src="https://via.placeholder.com/150" alt="Product Image">
+          <div class="product-info">
+            <h2>Nombre del Producto</h2>
+            <p>Esta es una descripción detallada del producto.</p>
+            <div class="product-price">50 pesos</div>
+            <div class="product-quantity">
+              Cantidad:
+              <input class="quantity-input" type="number" min="1" value="1">
+            </div>
+          </div>
+          <button class="add-to-cart">Añadir al Carrito</button>
+        </div>
+      </div>
+      
+        <div class="product-card">
+          <img class="product-image" src="https://via.placeholder.com/150" alt="Product Image">
+          <div class="product-info">
+            <h2>Nombre del Producto</h2>
+            <p>Esta es una descripción detallada del producto.</p>
+            <div class="product-price">50 pesos</div>
+            <div class="product-quantity">
+              Cantidad:
+              <input class="quantity-input" type="number" min="1" value="1">
+            </div>
+          </div>
+          <button class="add-to-cart">Añadir al Carrito</button>
+        </div>
+      </div>
+      
+        <div class="product-card">
+          <img class="product-image" src="https://via.placeholder.com/150" alt="Product Image">
+          <div class="product-info">
+            <h2>Nombre del Producto</h2>
+            <p>Esta es una descripción detallada del producto.</p>
+            <div class="product-price">50 pesos</div>
+            <div class="product-quantity">
+              Cantidad:
+              <input class="quantity-input" type="number" min="1" value="1">
+            </div>
+          </div>
+          <button class="add-to-cart">Añadir al Carrito</button>
+        </div>
+      </div>
+      
+        <div class="product-card">
+          <img class="product-image" src="https://via.placeholder.com/150" alt="Product Image">
+          <div class="product-info">
+            <h2>Nombre del Producto</h2>
+            <p>Esta es una descripción detallada del producto.</p>
+            <div class="product-price">50 pesos</div>
+            <div class="product-quantity">
+              Cantidad:
+              <input class="quantity-input" type="number" min="1" value="1">
+            </div>
+          </div>
+          <button class="add-to-cart">Añadir al Carrito</button>
+        </div>
+      </div>
+      <button id="load-more">Cargar más</button>
+   
+    </body>
+    <script>
+         
+         const cart = [];
+  const cartContainer = document.getElementById('cart-container');
+  const cartTotal = document.getElementById('cart-total');
+  const checkoutButton = document.getElementById('checkout');
 
-        <div class="header-content container">
+  document.querySelectorAll('.add-to-cart').forEach((button) => {
+    button.addEventListener('click', function() {
+      const productCard = this.closest('.product-card');
+      const productName = productCard.querySelector('h2').innerText;
+      const productPrice = parseInt(productCard.querySelector('.product-price').innerText, 10);
+      const quantityInput = productCard.querySelector('.quantity-input');
+      const quantity = parseInt(quantityInput.value, 10);
 
-            <div class="header-txt">
-                <h1></h1>
-                <p>
+      cart.push({
+        name: productName,
+        price: productPrice,
+        quantity: quantity
+      });
+
+      const itemCount = cart.reduce((total, product) => total + product.quantity, 0);
+      cartContainer.textContent = `Elementos en el carrito: ${itemCount}`;
+
+      const totalPrice = cart.reduce((total, product) => total + (product.price * product.quantity), 0);
+      cartTotal.textContent = `Total: ${totalPrice} pesos`;
+    });
+  });
+
+  checkoutButton.addEventListener('click', function() {
+    if (cart.length === 0) {
+      alert("Tu carrito está vacío");
+    } else {
+      alert("Procediendo al pago");
+      // Aquí puedes añadir lógica para realizar el checkout
+    }
+  });
+
+  const clearCartButton = document.getElementById('clear-cart');
+
+clearCartButton.addEventListener('click', function() {
+  cart.length = 0; // Vacía el array del carrito
+  cartContainer.textContent = "Elementos en el carrito: 0"; // Actualiza el contador de elementos
+  cartTotal.textContent = "Total: 0 pesos"; // Resetea el total
+  alert("El carrito ha sido vaciado"); // Muestra una alerta
+});
  
-                <div class="botones">
-                    <a href="#" class="btn-1"> <img class="icon" src="images/car.svg" alt="icon"></a>
-                    <a href="#" class="btn-2"> <img class="icon" src="images/arrow.svg" alt="icon"></a>
-                </div>
-            </div>
+checkoutButton.addEventListener('click', function() {
+  if (cart.length === 0) {
+    alert("Tu carrito está vacío");
+  } else {
+    let printContent = "<h1>Resumen de Compra</h1>";
 
-            <div class="header-img">
-                <img src="images/toner1.png" class="hamburger" alt="hamburger">
-            </div>
+    let totalPrice = 0;
+    cart.forEach((item) => {
+      printContent += `${item.name} - ${item.quantity} x ${item.price} pesos<br>`;
+      totalPrice += item.price * item.quantity;
+    });
 
-        </div>
+    printContent += `<br>Total: ${totalPrice} pesos`;
 
-    </header>
+    const printWindow = window.open("", "_blank");
+    printWindow.document.open();
+    printWindow.document.write(`<html><head><title>Resumen de Compra</title></head><body>${printContent}</body></html>`);
+    printWindow.document.close();
+    printWindow.onload = function() {
+      printWindow.print();
+    }
+  }
+});
 
+      </script>
 
-    <main class="product-menu">
-        <div class="container">
-
-
-            <div class="product">
-                <h2 class="title">Menu</h2>
-                <img class="hoja" src="images/hoja.png alt="">
-            </div>
-
-            <div class="menu-nav">
-                <div id="pro1" class="tab active">Modelo Samsung</div>
-                <div id="pro2" class="tab">Modelo HP</div>
-                <div id="pro3" class="tab">Modelo Canon</div>
-                <div id="pro4" class="tab">Modelo Xerox</div>
-                <div id="pro5" class="tab">Modelo Ricoh</div>
-            </div>
-
-
-            <div class="pro1 tab-content">
-                <div class="box-container-1">
-
-                    <div class="box-1">
-                        <div class="image">
-                            <img src="images/tigre.jpg" alt="">
-                        </div>
-                        <div class="content">
-                            <h3> </h3>
-                            <p>
-                                Lorem 
-                            </p>
-                            <div class="icons">
-                                <span class="price">$15.00</span>
-                                <span class="buy"><img src="images/car.svg" alt=""></span>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="box-1">
-                        <div class="image">
-                            <img src="images/tigre.jpg" alt="">
-                        </div>
-                        <div class="content">
-                            <h3> </h3>
-                            <p>
-                                Título de la Oferta: ¡Ahorra en tus Impresiones con Nuestra Oferta Especial de Tóner!
-
-
-
-                            </p>
-                            <div class="icons">
-                                <span class="price">$15.00</span>
-                                <span class="buy"><img src="images/car.svg" alt=""></span>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="box-1">
-                        <div class="image">
-                            <img src="images/tigre.jpg" alt="">
-                        </div>
-                        <div class="content">
-                            <h3>Burger Premium</h3>
-                            <p>
-                                Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                                Omnis iste
-                            </p>
-                            <div class="icons">
-                                <span class="price">$15.00</span>
-                                <span class="buy"><img src="images/car.svg" alt=""></span>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="box-1">
-                        <div class="image">
-                            <img src="images/tigre.jpg" alt="">
-                        </div>
-                        <div class="content">
-                            <h3>Burger Premium</h3>
-                            <p>
-                                Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                                Omnis iste
-                            </p>
-                            <div class="icons">
-                                <span class="price">$15.00</span>
-                                <span class="buy"><img src="images/car.svg" alt=""></span>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="box-1">
-                        <div class="image">
-                            <img src="images/tigre.jpg" alt="">
-                        </div>
-                        <div class="content">
-                            <h3>Burger Premium</h3>
-                            <p>
-                                Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                                Omnis iste
-                            </p>
-                            <div class="icons">
-                                <span class="price">$15.00</span>
-                                <span class="buy"><img src="images/car.svg" alt=""></span>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="box-1">
-                        <div class="image">
-                            <img src="images/tigre.jpg" alt="">
-                        </div>
-                        <div class="content">
-                            <h3>Burger Premium</h3>
-                            <p>
-                                Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                                Omnis iste
-                            </p>
-                            <div class="icons">
-                                <span class="price">$15.00</span>
-                                <span class="buy"><img src="images/car.svg" alt=""></span>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="box-1">
-                        <div class="image">
-                            <img src="images/tigre.jpg" alt="">
-                        </div>
-                        <div class="content">
-                            <h3>Burger Premium</h3>
-                            <p>
-                                Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                                Omnis iste
-                            </p>
-                            <div class="icons">
-                                <span class="price">$15.00</span>
-                                <span class="buy"><img src="images/car.svg" alt=""></span>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="box-1">
-                        <div class="image">
-                            <img src="images/tigre.jpg" alt="">
-                        </div>
-                        <div class="content">
-                            <h3>Burger Premium</h3>
-                            <p>
-                                Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                                Omnis iste
-                            </p>
-                            <div class="icons">
-                                <span class="price">$15.00</span>
-                                <span class="buy"><img src="images/car.svg" alt=""></span>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="box-1">
-                        <div class="image">
-                            <img src="images/tigre.jpg" alt="">
-                        </div>
-                        <div class="content">
-                            <h3>Burger Premium</h3>
-                            <p>
-                                Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                                Omnis iste
-                            </p>
-                            <div class="icons">
-                                <span class="price">$15.00</span>
-                                <span class="buy"><img src="images/car.svg" alt=""></span>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="box-1">
-                        <div class="image">
-                            <img src="images/tigre.jpg" alt="">
-                        </div>
-                        <div class="content">
-                            <h3>Burger Premium</h3>
-                            <p>
-                                Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                                Omnis iste
-                            </p>
-                            <div class="icons">
-                                <span class="price">$15.00</span>
-                                <span class="buy"><img src="images/car.svg" alt=""></span>
-                            </div>
-                        </div>
-                    </div>
-
-                </div>
-                <center>
-                    <div class="load-more" id="load-more-1">Cargar Mas</div>
-                </center>
-            </div>
-
-            <div class="pro2 tab-content">
-
-                <div class="box-container-2">
-
-                    <div class="box-2">
-                        <div class="image">
-                            <img src="images/hambuerger1.png" alt="">
-                        </div>
-                        <div class="content">
-                            <h3>Burger Premium</h3>
-                            <p>
-                                Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                                Omnis iste
-                            </p>
-                            <div class="icons">
-                                <span class="price">$15.00</span>
-                                <span class="buy"><img src="images/car.svg" alt=""></span>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="box-2">
-                        <div class="image">
-                            <img src="images/hambuerger1.png" alt="">
-                        </div>
-                        <div class="content">
-                            <h3>Burger Premium</h3>
-                            <p>
-                                Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                                Omnis iste
-                            </p>
-                            <div class="icons">
-                                <span class="price">$15.00</span>
-                                <span class="buy"><img src="images/car.svg" alt=""></span>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="box-2">
-                        <div class="image">
-                            <img src="images/hambuerger1.png" alt="">
-                        </div>
-                        <div class="content">
-                            <h3>Burger Premium</h3>
-                            <p>
-                                Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                                Omnis iste
-                            </p>
-                            <div class="icons">
-                                <span class="price">$15.00</span>
-                                <span class="buy"><img src="images/car.svg" alt=""></span>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="box-2">
-                        <div class="image">
-                            <img src="images/hambuerger1.png" alt="">
-                        </div>
-                        <div class="content">
-                            <h3>Burger Premium</h3>
-                            <p>
-                                Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                                Omnis iste
-                            </p>
-                            <div class="icons">
-                                <span class="price">$15.00</span>
-                                <span class="buy"><img src="images/car.svg" alt=""></span>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="box-2">
-                        <div class="image">
-                            <img src="images/hambuerger1.png" alt="">
-                        </div>
-                        <div class="content">
-                            <h3>Burger Premium</h3>
-                            <p>
-                                Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                                Omnis iste
-                            </p>
-                            <div class="icons">
-                                <span class="price">$15.00</span>
-                                <span class="buy"><img src="images/car.svg" alt=""></span>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="box-2">
-                        <div class="image">
-                            <img src="images/hambuerger1.png" alt="">
-                        </div>
-                        <div class="content">
-                            <h3>Burger Premium</h3>
-                            <p>
-                                Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                                Omnis iste
-                            </p>
-                            <div class="icons">
-                                <span class="price">$15.00</span>
-                                <span class="buy"><img src="images/car.svg" alt=""></span>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="box-2">
-                        <div class="image">
-                            <img src="images/hambuerger1.png" alt="">
-                        </div>
-                        <div class="content">
-                            <h3>Burger Premium</h3>
-                            <p>
-                                Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                                Omnis iste
-                            </p>
-                            <div class="icons">
-                                <span class="price">$15.00</span>
-                                <span class="buy"><img src="images/car.svg" alt=""></span>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="box-2">
-                        <div class="image">
-                            <img src="images/hambuerger1.png" alt="">
-                        </div>
-                        <div class="content">
-                            <h3>Burger Premium</h3>
-                            <p>
-                                Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                                Omnis iste
-                            </p>
-                            <div class="icons">
-                                <span class="price">$15.00</span>
-                                <span class="buy"><img src="images/car.svg" alt=""></span>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="box-2">
-                        <div class="image">
-                            <img src="images/hambuerger1.png" alt="">
-                        </div>
-                        <div class="content">
-                            <h3>Burger Premium</h3>
-                            <p>
-                                Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                                Omnis iste
-                            </p>
-                            <div class="icons">
-                                <span class="price">$15.00</span>
-                                <span class="buy"><img src="images/car.svg" alt=""></span>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="box-2">
-                        <div class="image">
-                            <img src="images/hambuerger1.png" alt="">
-                        </div>
-                        <div class="content">
-                            <h3>Burger Premium</h3>
-                            <p>
-                                Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                                Omnis iste
-                            </p>
-                            <div class="icons">
-                                <span class="price">$15.00</span>
-                                <span class="buy"><img src="images/car.svg" alt=""></span>
-                            </div>
-                        </div>
-                    </div>
-
-                </div>
-
-                <center>
-                    <div class="load-more" id="load-more-2">Cargar Mas</div>
-                </center>
-            </div>
-
-            <div class="pro3 tab-content">
-                <div class="box-container-3">
-
-                    <div class="box-3">
-                        <div class="image">
-                            <img src="images/hamburger2.png" alt="">
-                        </div>
-                        <div class="content">
-                            <h3>Burger Premium</h3>
-                            <p>
-                                Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                                Omnis iste
-                            </p>
-                            <div class="icons">
-                                <span class="price">$15.00</span>
-                                <span class="buy"><img src="images/car.svg" alt=""></span>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="box-3">
-                        <div class="image">
-                            <img src="images/hamburger2.png" alt="">
-                        </div>
-                        <div class="content">
-                            <h3>Burger Premium</h3>
-                            <p>
-                                Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                                Omnis iste
-                            </p>
-                            <div class="icons">
-                                <span class="price">$15.00</span>
-                                <span class="buy"><img src="images/car.svg" alt=""></span>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="box-3">
-                        <div class="image">
-                            <img src="images/hamburger2.png" alt="">
-                        </div>
-                        <div class="content">
-                            <h3>Burger Premium</h3>
-                            <p>
-                                Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                                Omnis iste
-                            </p>
-                            <div class="icons">
-                                <span class="price">$15.00</span>
-                                <span class="buy"><img src="images/car.svg" alt=""></span>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="box-3">
-                        <div class="image">
-                            <img src="images/hamburger2.png" alt="">
-                        </div>
-                        <div class="content">
-                            <h3>Burger Premium</h3>
-                            <p>
-                                Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                                Omnis iste
-                            </p>
-                            <div class="icons">
-                                <span class="price">$15.00</span>
-                                <span class="buy"><img src="images/car.svg" alt=""></span>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="box-3">
-                        <div class="image">
-                            <img src="images/hamburger2.png" alt="">
-                        </div>
-                        <div class="content">
-                            <h3>Burger Premium</h3>
-                            <p>
-                                Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                                Omnis iste
-                            </p>
-                            <div class="icons">
-                                <span class="price">$15.00</span>
-                                <span class="buy"><img src="images/car.svg" alt=""></span>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="box-3">
-                        <div class="image">
-                            <img src="images/hamburger2.png" alt="">
-                        </div>
-                        <div class="content">
-                            <h3>Burger Premium</h3>
-                            <p>
-                                Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                                Omnis iste
-                            </p>
-                            <div class="icons">
-                                <span class="price">$15.00</span>
-                                <span class="buy"><img src="images/car.svg" alt=""></span>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="box-3">
-                        <div class="image">
-                            <img src="images/hamburger2.png" alt="">
-                        </div>
-                        <div class="content">
-                            <h3>Burger Premium</h3>
-                            <p>
-                                Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                                Omnis iste
-                            </p>
-                            <div class="icons">
-                                <span class="price">$15.00</span>
-                                <span class="buy"><img src="images/car.svg" alt=""></span>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="box-3">
-                        <div class="image">
-                            <img src="images/hamburger2.png" alt="">
-                        </div>
-                        <div class="content">
-                            <h3>Burger Premium</h3>
-                            <p>
-                                Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                                Omnis iste
-                            </p>
-                            <div class="icons">
-                                <span class="price">$15.00</span>
-                                <span class="buy"><img src="images/car.svg" alt=""></span>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="box-3">
-                        <div class="image">
-                            <img src="images/hamburger2.png" alt="">
-                        </div>
-                        <div class="content">
-                            <h3>Burger Premium</h3>
-                            <p>
-                                Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                                Omnis iste
-                            </p>
-                            <div class="icons">
-                                <span class="price">$15.00</span>
-                                <span class="buy"><img src="images/car.svg" alt=""></span>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="box-3">
-                        <div class="image">
-                            <img src="images/hamburger2.png" alt="">
-                        </div>
-                        <div class="content">
-                            <h3>Burger Premium</h3>
-                            <p>
-                                Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                                Omnis iste
-                            </p>
-                            <div class="icons">
-                                <span class="price">$15.00</span>
-                                <span class="buy"><img src="images/car.svg" alt=""></span>
-                            </div>
-                        </div>
-                    </div>
-
-                </div>
-                <center>
-                    <div class="load-more" id="load-more-3">Cargar Mas</div>
-                </center>
-            </div>
-
-        </div>
-    </main>
-
-    <section class="info">
-
-        <div class="info-content container">
-
-            <div class="info-txt">
-                <p>--------</p>
-                <h2>Informacion</h2>
-
-                <div class="info-sec">
-
-                    <div class="info-1">
-                        <img src="images/f1.svg" alt="">
-                        <div class="info-2">
-                            <h3>Lorem</h3>
-                            <p>
-                                Lorem ipsum, dolor sit amet consectetur adipisicing elit.
-                            </p>
-                        </div>
-                    </div>
-
-                    <div class="info-1">
-                        <img src="images/f2.svg" alt="">
-                        <div class="info-2">
-                            <h3>Lorem</h3>
-                            <p>
-                                Lorem ipsum, dolor sit amet consectetur adipisicing elit.
-                            </p>
-                        </div>
-                    </div>
-
-                </div>
-
-            </div>
-
-            <div class="info-img">
-                <img src="images/info.png alt="">
-            </div>
-
-        </div>
-    </section>
-
-
-    <footer class="footer container">
-
-        <img class="logo-2" src="images/logo.svg alt="">
-
-        <div class="links">
-            <h4>lorem</h4>
-            <ul>
-                <li><a href="#">lorem</a></li>
-                <li><a href="#">lorem</a></li>
-                <li><a href="#">lorem</a></li>
-                <li><a href="#">lorem</a></li>
-            </ul>
-        </div>
-
-        <div class="links">
-            <h4>lorem</h4>
-            <ul>
-                <li><a href="#">lorem</a></li>
-                <li><a href="#">lorem</a></li>
-                <li><a href="#">lorem</a></li>
-                <li><a href="#">lorem</a></li>
-            </ul>
-        </div>
-
-        <div class="links">
-            <h4>lorem</h4>
-            <ul>
-                <li><a href="#">lorem</a></li>
-                <li><a href="#">lorem</a></li>
-                <li><a href="#">lorem</a></li>
-                <li><a href="#">lorem</a></li>
-            </ul>
-        </div>
-
-        <div class="links">
-            <h4>lorem</h4>
-            <div class="socials">
-                <a href="#">
-                    <div class="social">
-                        <img src="images/s1.svg alt="">
-                    </div>
-                </a>
-                <a href="#">
-                    <div class="social">
-                        <img src="images/s2.svg alt="">
-                    </div>
-                </a>
-                <a href="#">
-                    <div class="social">
-                        <img src="images/s3.svg alt="">
-                    </div>
-                </a>
-            </div>
-        </div>
-
-    </footer>
-
-
-    <script src="script.js"></script>
 </body>
-
 </html>
