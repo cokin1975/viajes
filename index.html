@@ -352,8 +352,8 @@ body {
    
     </body>
     <script>
-         
-         const cart = [];
+       
+ const cart = [];
   const cartContainer = document.getElementById('cart-container');
   const cartTotal = document.getElementById('cart-total');
   const checkoutButton = document.getElementById('checkout');
@@ -379,8 +379,25 @@ body {
       cartTotal.textContent = `Total: ${totalPrice} pesos`;
     });
   });
-// Tu carrito y otras variables previas aquí
 
+  checkoutButton.addEventListener('click', function() {
+    if (cart.length === 0) {
+      alert("Tu carrito está vacío");
+    } else {
+      alert("Procediendo al pago");
+      // Aquí puedes añadir lógica para realizar el checkout
+    }
+  });
+
+  const clearCartButton = document.getElementById('clear-cart');
+
+clearCartButton.addEventListener('click', function() {
+  cart.length = 0; // Vacía el array del carrito
+  cartContainer.textContent = "Elementos en el carrito: 0"; // Actualiza el contador de elementos
+  cartTotal.textContent = "Total: 0 pesos"; // Resetea el total
+  alert("El carrito ha sido vaciado"); // Muestra una alerta
+});
+ 
 checkoutButton.addEventListener('click', function() {
   if (cart.length === 0) {
     alert("Tu carrito está vacío");
@@ -404,7 +421,9 @@ checkoutButton.addEventListener('click', function() {
     }
   }
 });
-   
+
+ 
+         
       </script>
 
 </body>
