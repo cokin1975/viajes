@@ -1,11 +1,7 @@
 <!DOCTYPE html>
-<html lang="es">
-     <head>
-     <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<html>
+<head>
    
-
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap" rel="stylesheet">
   <style>
     .header {
@@ -46,12 +42,13 @@
       border: none;
       border-radius: 4px;
       float: left;
-         margin-bottom: 15px; 
+      margin-bottom: 15px; 
     }
 
     .menu-icons {
       display: flex;
       gap: 15px;
+      
     }
 
     .menu-icons a {
@@ -59,18 +56,19 @@
       color: white;
       text-decoration: none;
       font-size: 18px;
-      padding: 10px 20px;
+      padding: 10px 20px ;
       border-radius: 4px;
       background-color: white;
       color: #333;
       transition: background-image 0.3s ease;
+      margin-bottom: 0px; 
     }
 
     .menu-icons a:hover {
       background-image: linear-gradient(to right, #007BFF, #00C6FF);
       color: white;
     }
-     #product-container {
+    #product-container {
   max-width: 300px; /* Establece el ancho máximo del contenedor */
   margin: 0 auto; /* Centra el contenedor en la pantalla */
   padding: 10px; /* Agrega un espacio de relleno alrededor del contenedor */
@@ -97,14 +95,18 @@
 
 
 
+
+    
+
     .add-to-cart {
       background-color: #007BFF;
       color: white;
-      padding: 5px;
+      padding: 5px  ;
       border: none;
       border-radius: 4px;
       cursor: pointer;
       transition: background-color 0.3s ease;
+      margin-left: 
     }
 
     .add-to-cart:hover {
@@ -185,18 +187,23 @@
   transform: scale(1.05); /* Hace el botón un poco más grande */
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2); /* Añade una sombra sutil */
 }
-#body {
-          font-family: 'Arial', sans-serif;
-        }
-        #h1 {
-          font-size: 36px;
-          color: #333;
-        }
-        #p {
-          font-size: 18px;
-        }
+body {
+            font-family: 'Arial', sans-serif;
+          }
+          .item {
+            font-weight: normal;
+          }
+          .total {
+            font-weight: bold;
+          }
 
-       @media (max-width: 768px) {
+          @media (max-width: 768px) {
+  .header {
+    flex-direction: column; /* Cambia la dirección de los elementos a columna */
+    text-align: center; /* Centra el texto */
+  }
+}
+@media (max-width: 768px) {
   .product-image {
     width: 150px;
     height: 150px;
@@ -208,18 +215,43 @@
     flex-grow: 1;
   }
 }
-        @media (max-width: 768px) {
-  .header {
-    flex-direction: column; /* Cambia la dirección de los elementos a columna */
-    text-align: center; /* Centra el texto */
-  }
+
 @media (max-width: 768px) {
   .add-to-cart {
     padding: 10px; /* Mayor relleno para dispositivos móviles */
     margin-left: 0; /* Elimina el margen a la izquierda */
   }
 }
-             
+
+body {
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif;
+    background-color: #f0f0f0;
+}
+
+.image-frame {
+    max-width: 70%;
+    margin: 20px auto;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+    overflow: hidden;
+}
+
+.image-frame img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+}
+
+@media (max-width: 768px) {
+    .image-frame {
+        max-width: 90%;
+    }
+}
+
+
+
   </style>
 </head>
 <header>
@@ -234,7 +266,7 @@
   </div>
 </div>
 </header>
-
+</html>
 
 <body>
    
@@ -248,7 +280,8 @@
       </div>
       
       
-
+      <div class="image-frame">
+        <img src="enviosazul.jpg" alt="Imagen Envío">
       <div id="cart-container">Elementos en el carrito: 0</div>
 <div id="cart-total">Total: 0 pesos</div>
 <button id="checkout">Comprar ahora</button>
@@ -262,11 +295,13 @@
       
       <div id="product-container">
         <div class="product-card">
-          <img class="product-image" src="https://via.placeholder.com/150" alt="Product Image">
+          <img class="product-image" src="HP83A.jpg" alt="Product Image">
           <div class="product-info">
-            <h2>Nombre del Producto</h2>
-            <p>Esta es una descripción detallada del producto.</p>
-            <div class="product-price">50 pesos</div>
+            <h2>Toner Hp 83a</h2>
+            <p>Número de modelo: LT para cartucho de tóner negro HP 83A CF283A 83X CF283X
+              Más compatibilidad: el cartucho de tóner CF283A también es compatible con tóner mfp m125nw y tóner mfp m225dn
+               </p>
+            <div class="product-price">390 pesos Iva Incluido en stock </div>
             <div class="product-quantity">
               Cantidad:
               <input class="quantity-input" type="number" min="1" value="1">
@@ -277,11 +312,11 @@
       </div>
       <div id="product-container">
         <div class="product-card">
-          <img class="product-image" src="https://via.placeholder.com/150" alt="Product Image">
+          <img class="product-image" src="55x.jpg" alt="Product Image">
           <div class="product-info">
-            <h2>toner hp 83a</h2>
-            <p>Esta es una descripción detallada del producto.</p>
-            <div class="product-price">50 pesos</div>
+            <h2>Toner hp 55x</h2>
+            <p>Cartucho de tóner compatible CE255X 55A 255A CE255A para impresora HP Laserjet Pro 500 MFP M521DN M525DN M525f P3015dn P3010 P3015x P3015 P3015d...  </p>
+            <div class="product-price">950 pesos Iva Incluido  en stock</div>
             <div class="product-quantity">
               Cantidad:
               <input class="quantity-input" type="number" min="1" value="1">
@@ -293,11 +328,13 @@
       
       <div id="product-container">
         <div class="product-card">
-          <img class="product-image" src="https://via.placeholder.com/150" alt="Product Image">
+          <img class="product-image" src="hp105.jpg" alt="Product Image">
           <div class="product-info">
-            <h2>Nombre del Producto</h2>
-            <p>Esta es una descripción detallada del producto.</p>
-            <div class="product-price">50 pesos</div>
+            <h2>Toner Hp 105a sin chip </h2>
+            <p>Compatible con HP IKP W1105X sin  Chip, Negro, 
+              Extra Alto Rendimiento de 1,500 págs. 
+              105A, Laserjet 107A,107W,Laserjet MFP135A,135FNW... </p>
+            <div class="product-price">590 pesos en stock </div>
             <div class="product-quantity">
               Cantidad:
               <input class="quantity-input" type="number" min="1" value="1">
@@ -308,11 +345,13 @@
       </div>
       <div id="product-container">
         <div class="product-card">
-          <img class="product-image" src="https://via.placeholder.com/150" alt="Product Image">
+          <img class="product-image" src="hp58.jpg" alt="Product Image">
           <div class="product-info">
             <h2>Nombre del Producto</h2>
-            <p>Esta es una descripción detallada del producto.</p>
-            <div class="product-price">50 pesos</div>
+            <p> Cartucho de tóner compatible para HP 58X CF258X 
+              58A CF258A Laserjet Pro M404n M404dn MFP M428fdw M428dw 
+              sin chip (negro, 1 paquete)</p>
+            <div class="product-price">590 pesos Iva incluido  en stock</div>
             <div class="product-quantity">
               Cantidad:
               <input class="quantity-input" type="number" min="1" value="1">
@@ -323,11 +362,11 @@
       </div>
       <div id="product-container">
         <div class="product-card">
-          <img class="product-image" src="https://via.placeholder.com/150" alt="Product Image">
+          <img class="product-image" src="hp30.jpg" alt="Product Image">
           <div class="product-info">
-            <h2>Nombre del Producto</h2>
-            <p>Esta es una descripción detallada del producto.</p>
-            <div class="product-price">50 pesos</div>
+            <h2>Toner Hp 30a </h2>
+            <p> tóner Compatible con HP 30A / CF230A Negro 1,600 págs. (CF230A,30A,Laserjet Pro,M203W,M227FDW)</p>
+            <div class="product-price">490  pesos Iva Incluido en stock</div>
             <div class="product-quantity">
               Cantidad:
               <input class="quantity-input" type="number" min="1" value="1">
@@ -337,56 +376,12 @@
         </div>
       </div>
       
-        <div class="product-card">
-          <img class="product-image" src="https://via.placeholder.com/150" alt="Product Image">
-          <div class="product-info">
-            <h2>Nombre del Producto</h2>
-            <p>Esta es una descripción detallada del producto.</p>
-            <div class="product-price">50 pesos</div>
-            <div class="product-quantity">
-              Cantidad:
-              <input class="quantity-input" type="number" min="1" value="1">
-            </div>
-          </div>
-          <button class="add-to-cart">Añadir al Carrito</button>
-        </div>
-      </div>
-      
-        <div class="product-card">
-          <img class="product-image" src="https://via.placeholder.com/150" alt="Product Image">
-          <div class="product-info">
-            <h2>Nombre del Producto</h2>
-            <p>Esta es una descripción detallada del producto.</p>
-            <div class="product-price">50 pesos</div>
-            <div class="product-quantity">
-              Cantidad:
-              <input class="quantity-input" type="number" min="1" value="1">
-            </div>
-          </div>
-          <button class="add-to-cart">Añadir al Carrito</button>
-        </div>
-      </div>
-      
-        <div class="product-card">
-          <img class="product-image" src="https://via.placeholder.com/150" alt="Product Image">
-          <div class="product-info">
-            <h2>Nombre del Producto</h2>
-            <p>Esta es una descripción detallada del producto.</p>
-            <div class="product-price">50 pesos</div>
-            <div class="product-quantity">
-              Cantidad:
-              <input class="quantity-input" type="number" min="1" value="1">
-            </div>
-          </div>
-          <button class="add-to-cart">Añadir al Carrito</button>
-        </div>
-      </div>
-      <button id="load-more">Cargar más</button>
+        
    
     </body>
     <script>
-       
- const cart = [];
+         
+         const cart = [];
   const cartContainer = document.getElementById('cart-container');
   const cartTotal = document.getElementById('cart-total');
   const checkoutButton = document.getElementById('checkout');
@@ -455,8 +450,6 @@ checkoutButton.addEventListener('click', function() {
   }
 });
 
- 
-         
       </script>
 
 </body>
