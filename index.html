@@ -285,8 +285,7 @@ body {
         <a href="#TelefonosCelulares">Telefonos Celulares</a>
       </div>
       
-      <title>Chat en Node.js</title>
-  <script src="/socket.io/socket.io.js"></script>
+     
 </head>
 <body>
   <ul id="messages"></ul>
@@ -457,20 +456,16 @@ checkoutButton.addEventListener('click', function() {
     }
   }
 });
-const socket = io();
-    function sendMessage() {
-      const message = document.getElementById('message-input').value;
-      socket.emit('chat message', message);
-      document.getElementById('message-input').value = '';
-    }
-
-    socket.on('chat message', (message) => {
-      const messages = document.getElementById('messages');
-      const li = document.createElement('li');
-      li.textContent = message;
-      messages.appendChild(li);
-    });
-       
+type="text/javascript">
+var Tawk_API=Tawk_API||{}, Tawk_LoadStart=new Date();
+(function(){
+var s1=document.createElement("script"),s0=document.getElementsByTagName("script")[0];
+s1.async=true;
+s1.src='https://embed.tawk.to/650bc14b0f2b18434fd9b1b2/1haqum465';
+s1.charset='UTF-8';
+s1.setAttribute('crossorigin','*');
+s0.parentNode.insertBefore(s1,s0);
+})();
       </script>
 
 </body>
