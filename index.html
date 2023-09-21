@@ -1,10 +1,6 @@
 <!DOCTYPE html>
-<html lang="es">
-     <head>
-     <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-   
+<html>
+<head>
    
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap" rel="stylesheet">
   <style>
@@ -289,7 +285,12 @@ body {
         <a href="#TelefonosCelulares">Telefonos Celulares</a>
       </div>
       
-      
+      <title>Chat en Node.js</title>
+  <script src="/socket.io/socket.io.js"></script>
+</head>
+<body>
+  <ul id="messages"></ul>
+  <input id="message-input" autocomplete="off" /><button onclick="sendMessage()">Enviar</button>
       <div class="image-frame">
         <img src="enviosazul.jpg" alt="Imagen Envío">
       <div id="cart-container">Elementos en el carrito: 0</div>
@@ -456,7 +457,19 @@ checkoutButton.addEventListener('click', function() {
     }
   }
 });
+const socket = io();
+    function sendMessage() {
+      const message = document.getElementById('message-input').value;
+      socket.emit('chat message', message);
+      document.getElementById('message-input').value = '';
+    }
 
+    socket.on('chat message', (message) => {
+      const messages = document.getElementById('messages');
+      const li = document.createElement('li');
+      li.textContent = message;
+      messages.appendChild(li);
+    });
       </script>
 
 </body>
