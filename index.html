@@ -470,6 +470,10 @@ const socket = io();
       li.textContent = message;
       messages.appendChild(li);
     });
+       app.get('/', (req, res) => {
+  res.sendFile(__dirname + '/index.html');
+});
+app.use(express.static(__dirname + '/public'));
       </script>
 
 </body>
