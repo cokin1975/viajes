@@ -264,7 +264,21 @@ body {
         padding: 10px; /* Reducir el espacio de relleno */
     }
 }
+}
+#whatsapp-button {
+  background-color: #25d366; /* Color de fondo de WhatsApp */
+  color: #fff; /* Color del texto */
+  border: none;
+  padding: 10px 20px;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: background 0.3s ease-in-out, transform 0.2s ease-in-out;
+}
 
+#whatsapp-button:hover {
+  background: radial-gradient(circle, rgba(37, 211, 102, 0.5), transparent); /* Fondo radial al hacer hover */
+  transform: scale(1.05); /* Aumenta el tamaño ligeramente al hacer hover */
+}
 .
 
 
@@ -281,7 +295,10 @@ body {
   </div>
   <div class="menu-icons">
     <a href="tel:8671291566">Llamar a 8671291566</a>
-    <a href="#">Jonatan Glz</a>
+    <button id="whatsapp-button">Enviar mensaje de WhatsApp</button>
+<button id="llamar"></button>
+<p id="mensaje" class="d-none" <p></p>
+<p id="mensaje" class="d-none"></p>
   </div>
 </div>
 </header>
@@ -472,6 +489,20 @@ checkoutButton.addEventListener('click', function() {
 document.getElementById('llamar').addEventListener('click', function() {
     window.location.href = 'tel:8671291566';
 });
+document.getElementById("whatsapp-button").addEventListener("click", function() {
+     var mensaje = "Hola, habla con el Abogado Cesar Garcia. ¿En qué puedo ayudarte hoy?";
+     var numeroTelefono = "8671291566"; // Reemplaza esto con el número de teléfono de WhatsApp al que deseas redirigir.
+ 
+     // Construye la URL de WhatsApp con el número de teléfono y el mensaje.
+     var url = "https://api.whatsapp.com/send?phone=" + encodeURIComponent(numeroTelefono) + "&text=" + encodeURIComponent(mensaje);
+ 
+     // Redirige al usuario a la URL de WhatsApp.
+     window.location.href = url;
+ 
+     // Oculta el mensaje después de hacer clic en el botón de WhatsApp
+     document.getElementById("mensaje").classList.add("d-none");
+ });
+         
       </script>
 
 </body>
