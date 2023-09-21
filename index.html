@@ -299,7 +299,7 @@ body {
     <input type="text" placeholder="Buscar productos...">
   </div>
   <div class="menu-icons">
-    <a href="tel:8671291566">Llamar a 8671291566</a>
+    <a href="tel:+528671291566">Llamar a 8671291566</a>
     <button id="whatsapp-button">Enviar mensaje de WhatsApp</button>
 <button id="llamar"></button>
 <p id="mensaje" class="d-none" <p></p>
@@ -496,7 +496,7 @@ document.getElementById('llamar').addEventListener('click', function() {
 });
 document.getElementById("whatsapp-button").addEventListener("click", function() {
      var mensaje = "Hola, habla con Jorge Glz Alanis . ¿En qué puedo ayudarte hoy?";
-     var numeroTelefono = "8671291566"; // Reemplaza esto con el número de teléfono de WhatsApp al que deseas redirigir.
+     var numeroTelefono = "528671291566"; // Reemplaza esto con el número de teléfono de WhatsApp al que deseas redirigir.
  
      // Construye la URL de WhatsApp con el número de teléfono y el mensaje.
      var url = "https://api.whatsapp.com/send?phone=" + encodeURIComponent(numeroTelefono) + "&text=" + encodeURIComponent(mensaje);
