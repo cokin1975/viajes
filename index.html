@@ -478,55 +478,53 @@ body {
     </body>
     <script>
             const cart = [];
-  const cartContainer = document.getElementById('cart-container');
-  const cartTotal = document.getElementById('cart-total');
-  const checkoutButton = document.getElementById('checkout');
+const cartContainer = document.getElementById('cart-container');
+const cartTotal = document.getElementById('cart-total');
+const checkoutButton = document.getElementById('checkout');
+const printButton = document.getElementById('print-button');
 
-  document.querySelectorAll('.add-to-cart').forEach((button) => {
-    button.addEventListener('click', function() {
-      const productCard = this.closest('.product-card');
-      const productName = productCard.querySelector('h2').innerText;
-      const productPrice = parseInt(productCard.querySelector('.product-price').innerText, 10);
-      const quantityInput = productCard.querySelector('.quantity-input');
-      const quantity = parseInt(quantityInput.value, 10);
+document.querySelectorAll('.add-to-cart').forEach((button) => {
+  button.addEventListener('click', function () {
+    const productCard = this.closest('.product-card');
+    const productName = productCard.querySelector('h2').innerText;
+    const productPrice = parseInt(productCard.querySelector('.product-price').innerText, 10);
+    const quantityInput = productCard.querySelector('.quantity-input');
+    const quantity = parseInt(quantityInput.value, 10);
 
-      cart.push({
-        name: productName,
-        price: productPrice,
-        quantity: quantity
-      });
-
-      const itemCount = cart.reduce((total, product) => total + product.quantity, 0);
-      cartContainer.textContent = `Elementos en el carrito: ${itemCount}`;
-
-      const totalPrice = cart.reduce((total, product) => total + (product.price * product.quantity), 0);
-      cartTotal.textContent = `Total: ${totalPrice} pesos`;
+    cart.push({
+      name: productName,
+      price: productPrice,
+      quantity: quantity,
     });
+
+    updateCartDisplay();
   });
-
-  checkoutButton.addEventListener('click', function() {
-    if (cart.length === 0) {
-      alert("Tu carrito está vacío");
-    } else {
-      alert("Procediendo al pago");
-      // Aquí puedes añadir lógica para realizar el checkout
-    }
-  });
-
-  const clearCartButton = document.getElementById('clear-cart');
-
-clearCartButton.addEventListener('click', function() {
-  cart.length = 0; // Vacía el array del carrito
-  cartContainer.textContent = "Elementos en el carrito: 0"; // Actualiza el contador de elementos
-  cartTotal.textContent = "Total: 0 pesos"; // Resetea el total
-  alert("El carrito ha sido vaciado"); // Muestra una alerta
 });
- 
-checkoutButton.addEventListener('click', function() {
+
+checkoutButton.addEventListener('click', function () {
   if (cart.length === 0) {
-    alert("Tu carrito está vacío");
+    alert('Tu carrito está vacío');
   } else {
-    let printContent = "<h1>Resumen de Compra</h1>";
+    alert('Redirigiendo a Mercado Pago para el pago');
+    // Aquí puedes redirigir al usuario a la página de Mercado Pago con la información del carrito.
+    // Reemplaza las siguientes líneas con tu lógica de redirección:
+
+    // const totalAmount = calcularTotalAmount(cart); // Debes implementar esta función
+    // window.location.href = `https://www.mercadopago.com/checkout?total=${totalAmount}`;
+  }
+});
+
+clearCartButton.addEventListener('click', function () {
+  cart.length = 0; // Vacía el array del carrito
+  updateCartDisplay();
+  alert('El carrito ha sido vaciado');
+});
+
+printButton.addEventListener('click', function () {
+  if (cart.length === 0) {
+    alert('Tu carrito está vacío');
+  } else {
+    let printContent = '<h1>Resumen de Compra</h1>';
 
     let totalPrice = 0;
     cart.forEach((item) => {
@@ -536,15 +534,29 @@ checkoutButton.addEventListener('click', function() {
 
     printContent += `<br>Total: ${totalPrice} pesos`;
 
-    const printWindow = window.open("", "_blank");
+    const printWindow = window.open('', '_blank');
     printWindow.document.open();
     printWindow.document.write(`<html><head><title>Resumen de Compra</title></head><body>${printContent}</body></html>`);
     printWindow.document.close();
-    printWindow.onload = function() {
+    printWindow.onload = function () {
       printWindow.print();
-    }
+    };
   }
 });
+
+function updateCartDisplay() {
+  const itemCount = cart.reduce((total, product) => total + product.quantity, 0);
+  cartContainer.textContent = `Elementos en el carrito: ${itemCount}`;
+
+  const totalPrice = cart.reduce((total, product) => total + product.price * product.quantity, 0);
+  cartTotal.textContent = `Total: ${totalPrice} pesos`;
+}
+
+// Debes implementar la función calcularTotalAmount para calcular el monto total del carrito
+// function calcularTotalAmount(cart) {
+//   // Implementa la lógica para calcular el total aquí
+// }
+
       
 document.getElementById('llamar').addEventListener('click', function() {
     window.location.href = 'tel:+528671291566';
