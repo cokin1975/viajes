@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="es">
      <head>
@@ -60,18 +61,18 @@ s0.parentNode.insertBefore(s1,s0);
 
     .menu-icons {
       display: flex;
-      gap: 15px;
+      gap: 35px;
       
     }
 
     .menu-icons a {
-      display: inline-block;
-      color: white;
+      display: inline-block
+      color: white
       text-decoration: none;
       font-size: 18px;
       padding: 10px 20px ;
       border-radius: 4px;
-      background-color: white;
+      background-color: white
       color: #333;
       transition: background-image 0.3s ease;
       margin-bottom: 0px; 
@@ -264,15 +265,21 @@ body {
         padding: 10px; /* Reducir el espacio de relleno */
     }
 }
+
+
+#whatsapp-button {
+    background-color: #25d366; /* Color de WhatsApp */
+    color: #fff; /* Color del texto */
+    text-decoration: none; /* Quita la subraya del enlace */
+    padding: 10px 20px;
+    border-radius: 20px;
+    display: inline-block; /* Permite que el enlace se comporte como un botón */
+    transition: background 0.3s ease-in-out, transform 0.2s ease-in-out;
 }
-# whatsapp-button {
- background-color:#00bb2d ;
-  color: #fff; /* Color del texto */
-  border: none;
-  padding: 10px 20px;
-  border-radius: 20px;
-  cursor: pointer;
-  transition: background 0.3s ease-in-out, transform 0.2s ease-in-out;
+
+#whatsapp-button:hover {
+    background-color: #128C7E; /* Cambia el color al pasar el mouse */
+    transform: scale(1.05); /* Hace que el botón se agrande ligeramente al pasar el mouse */
 }
 
 #llamar{
@@ -285,6 +292,43 @@ body {
   transition: background 0.3s ease-in-out, transform 0.2s ease-in-out;
 }
 
+.menu-icons {
+    text-align: center;
+}
+
+.llamar-header {
+    font-family: 'Montserrat', sans-serif; /* Fuente elegante, reemplaza 'Montserrat' con tu fuente deseada */
+    font-size: 32px; /* Tamaño de fuente */
+    color: #333; /* Color de texto */
+    margin-bottom: 20px; /* Espaciado inferior */
+}
+
+#phone-link {
+    display: inline-block;
+    text-decoration: none;
+    transition: background-image 0.3s ease;
+}
+
+#phone-link img {
+    max: width 50px; %; /* Ajusta el tamaño de la imagen al contenedor */
+
+}
+
+#phone-link:hover {
+    background-image: linear-gradient(to right, #007BFF, #00C6FF);
+    color: white;
+}
+#phone-link img {
+    max-width: 100%; /* La imagen se ajustará al ancho del contenedor por defecto */
+    height: 100px; /* La altura se ajustará automáticamente para mantener la proporción */
+    margin-right: 20px
+}
+
+@media ( min-width:769px) {
+    #phone-link img {
+        max-width: 80%; /* Reducir el ancho máximo de la imagen en pantallas más grandes */
+    }
+}
 
 
   </style>
@@ -298,10 +342,20 @@ body {
   <div class="search-box">
     <input type="text" placeholder="Buscar productos...">
   </div>
-  <div class="menu-icons">
-    <a href="tel:+528671291566">Llamar a 8671291566</a>
-    <button id="whatsapp-button">Enviar mensaje de WhatsApp</button>
-<button id="llamar"></button>
+  <div id="mi-div">
+    <h1>Atencion de 9 a 6 llamar.. </h1>
+</div>
+  <div class="menu-icons"></div>
+    <div class="menu-icons">
+        <a href="tel:+528671291566" id="phone-link">
+            <img src="telefono.webp" alt="Teléfono">
+        </a>
+        <h2 class="llamar-header"></h2>
+        
+    </div>
+   
+    <a href="https://wa.me/528671291566" id="whatsapp-button">Enviar mensaje de WhatsApp</a>
+</div>
 <p id="mensaje" class="d-none" <p></p>
 <p id="mensaje" class="d-none"></p>
   </div>
@@ -492,7 +546,7 @@ checkoutButton.addEventListener('click', function() {
   }
 });
 document.getElementById('llamar').addEventListener('click', function() {
-    window.location.href = 'tel:8671291566';
+    window.location.href = 'tel:528671291566';
 });
 document.getElementById("whatsapp-button").addEventListener("click", function() {
      var mensaje = "Hola, habla con Jorge Glz Alanis . ¿En qué puedo ayudarte hoy?";
