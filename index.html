@@ -378,20 +378,11 @@ body {
      
 </head>
 <body>
-   
   <ul id="messages"></ul>
-  
+  <input id="message-input" autocomplete="off" /><button onclick="sendMessage()">Enviar</button>
       <div class="image-frame">
         <img src="enviosazul.jpg" alt="Imagen Envío">
       <div id="cart-container">Elementos en el carrito: 0</div>
-            <h1>Tu Carrito de Compras</h1>
-           <ul id="cart-list"></ul>
-          <div id="modal" style="display: none;">
-  <h2>Ingresa el monto total</h2>
-  <input type="number" id="monto-input" placeholder="Monto total">
-  <button id="confirmar-monto">Confirmar</button>
-</div>
-  <ul id="messages"></ul>
 <div id="cart-total">Total: 0 pesos</div>
 <button id="checkout">Comprar ahora</button>
 <button id="clear-cart">Vaciar Carrito</button>
@@ -485,80 +476,58 @@ body {
         </div>
    
     </body>
-
-     
     <script>
-      const cart = [];
-const cartList = document.getElementById('cart-list');
-const cartTotal = document.getElementById('cart-total');
-const checkoutButton = document.getElementById('checkout');
-const modal = document.getElementById('modal');
-const montoInput = document.getElementById('monto-input');
-const confirmarMontoButton = document.getElementById('confirmar-monto');
+         
+         const cart = [];
+  const cartContainer = document.getElementById('cart-container');
+  const cartTotal = document.getElementById('cart-total');
+  const checkoutButton = document.getElementById('checkout');
 
-// Función para calcular el total del carrito
-function calcularTotalAmount(cart) {
-  return cart.reduce((total, product) => total + product.price * product.quantity, 0);
-}
+  document.querySelectorAll('.add-to-cart').forEach((button) => {
+    button.addEventListener('click', function() {
+      const productCard = this.closest('.product-card');
+      const productName = productCard.querySelector('h2').innerText;
+      const productPrice = parseInt(productCard.querySelector('.product-price').innerText, 10);
+      const quantityInput = productCard.querySelector('.quantity-input');
+      const quantity = parseInt(quantityInput.value, 10);
 
-// Función para agregar un producto al carrito
-function agregarProductoAlCarrito(producto) {
-  cart.push(producto);
-  updateCartDisplay();
-}
+      cart.push({
+        name: productName,
+        price: productPrice,
+        quantity: quantity
+      });
 
-// Función para actualizar la interfaz de usuario del carrito
-function updateCartDisplay() {
-  const itemCount = cart.reduce((total, product) => total + product.quantity, 0);
-  cartList.innerHTML = '';
+      const itemCount = cart.reduce((total, product) => total + product.quantity, 0);
+      cartContainer.textContent = `Elementos en el carrito: ${itemCount}`;
 
-  cart.forEach((item) => {
-    cartList.innerHTML += `<li>${item.name} - ${item.quantity} x ${item.price} pesos</li>`;
+      const totalPrice = cart.reduce((total, product) => total + (product.price * product.quantity), 0);
+      cartTotal.textContent = `Total: ${totalPrice} pesos`;
+    });
   });
 
-  const totalPrice = calcularTotalAmount(cart);
-  cartTotal.textContent = `Total: ${totalPrice} pesos`;
-}
+  checkoutButton.addEventListener('click', function() {
+    if (cart.length === 0) {
+      alert("Tu carrito está vacío");
+    } else {
+      alert("Procediendo al pago");
+      // Aquí puedes añadir lógica para realizar el checkout
+    }
+  });
 
-checkoutButton.addEventListener('click', function () {
-  if (cart.length === 0) {
-    alert('Tu carrito está vacío');
-  } else {
-    // Muestra el modal para ingresar el monto
-    modal.style.display = 'block';
-  }
-});
+  const clearCartButton = document.getElementById('clear-cart');
 
-confirmarMontoButton.addEventListener('click', function () {
-  const montoIngresado = parseFloat(montoInput.value);
-
-  if (isNaN(montoIngresado) || montoIngresado <= 0) {
-    alert('Ingresa un monto válido mayor a cero.');
-  } else {
-    // Oculta el modal
-    modal.style.display = 'none';
-
-    // Redirige al cliente a la página de pago de Mercado Pago con el monto ingresado
-    window.open(`https://link.mercadopago.com.mx/laredotoner/checkout?total=${montoIngresado}`, '_blank');
-  }
-});
-
-// Ejemplo de cómo agregar productos al carrito
-agregarProductoAlCarrito({ name: 'Producto 1', price: 10, quantity: 1 });
-agregarProductoAlCarrito({ name: 'Producto 2', price: 15, quantity: 2 });
-
-
-clearCartButton.addEventListener('click', function () {
+clearCartButton.addEventListener('click', function() {
   cart.length = 0; // Vacía el array del carrito
-  updateCartDisplay();
-  alert('El carrito ha sido vaciado');
+  cartContainer.textContent = "Elementos en el carrito: 0"; // Actualiza el contador de elementos
+  cartTotal.textContent = "Total: 0 pesos"; // Resetea el total
+  alert("El carrito ha sido vaciado"); // Muestra una alerta
 });
-
-printButton.addEventListener('click', function () {
+ 
+checkoutButton.addEventListener('click', function() {
   if (cart.length === 0) {
-    alert('Tu carrito está vacío');
+    alert("Tu carrito está vacío");
   } else {
-    let printContent = '<h1>Resumen de Compra</h1>';
+    let printContent = "<h1>Resumen de Compra</h1>";
 
     let totalPrice = 0;
     cart.forEach((item) => {
@@ -568,30 +537,15 @@ printButton.addEventListener('click', function () {
 
     printContent += `<br>Total: ${totalPrice} pesos`;
 
-    const printWindow = window.open('', '_blank');
+    const printWindow = window.open("", "_blank");
     printWindow.document.open();
     printWindow.document.write(`<html><head><title>Resumen de Compra</title></head><body>${printContent}</body></html>`);
     printWindow.document.close();
-    printWindow.onload = function () {
+    printWindow.onload = function() {
       printWindow.print();
-    };
+    }
   }
 });
-
-function updateCartDisplay() {
-  const itemCount = cart.reduce((total, product) => total + product.quantity, 0);
-  cartContainer.textContent = `Elementos en el carrito: ${itemCount}`;
-
-  const totalPrice = cart.reduce((total, product) => total + product.price * product.quantity, 0);
-  cartTotal.textContent = `Total: ${totalPrice} pesos`;
-}
-
-// Debes implementar la función calcularTotalAmount para calcular el monto total del carrito
-// function calcularTotalAmount(cart) {
-//   // Implementa la lógica para calcular el total aquí
-// }
-
-      
 document.getElementById('llamar').addEventListener('click', function() {
     window.location.href = 'tel:+528671291566';
 });
