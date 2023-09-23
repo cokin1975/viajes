@@ -378,11 +378,20 @@ body {
      
 </head>
 <body>
+   
   <ul id="messages"></ul>
   
       <div class="image-frame">
         <img src="enviosazul.jpg" alt="Imagen Envío">
       <div id="cart-container">Elementos en el carrito: 0</div>
+            <h1>Tu Carrito de Compras</h1>
+           <ul id="cart-list"></ul>
+          <div id="modal" style="display: none;">
+  <h2>Ingresa el monto total</h2>
+  <input type="number" id="monto-input" placeholder="Monto total">
+  <button id="confirmar-monto">Confirmar</button>
+</div>
+  <ul id="messages"></ul>
 <div id="cart-total">Total: 0 pesos</div>
 <button id="checkout">Comprar ahora</button>
 <button id="clear-cart">Vaciar Carrito</button>
@@ -476,39 +485,68 @@ body {
         </div>
    
     </body>
+
+     
     <script>
-            const cart = [];
-const cartContainer = document.getElementById('cart-container');
+      const cart = [];
+const cartList = document.getElementById('cart-list');
 const cartTotal = document.getElementById('cart-total');
 const checkoutButton = document.getElementById('checkout');
-const printButton = document.getElementById('print-button');
+const modal = document.getElementById('modal');
+const montoInput = document.getElementById('monto-input');
+const confirmarMontoButton = document.getElementById('confirmar-monto');
 
-document.querySelectorAll('.add-to-cart').forEach((button) => {
-  button.addEventListener('click', function () {
-    const productCard = this.closest('.product-card');
-    const productName = productCard.querySelector('h2').innerText;
-    const productPrice = parseInt(productCard.querySelector('.product-price').innerText, 10);
-    const quantityInput = productCard.querySelector('.quantity-input');
-    const quantity = parseInt(quantityInput.value, 10);
+// Función para calcular el total del carrito
+function calcularTotalAmount(cart) {
+  return cart.reduce((total, product) => total + product.price * product.quantity, 0);
+}
 
-    cart.push({
-      name: productName,
-      price: productPrice,
-      quantity: quantity,
-    });
+// Función para agregar un producto al carrito
+function agregarProductoAlCarrito(producto) {
+  cart.push(producto);
+  updateCartDisplay();
+}
 
-    updateCartDisplay();
+// Función para actualizar la interfaz de usuario del carrito
+function updateCartDisplay() {
+  const itemCount = cart.reduce((total, product) => total + product.quantity, 0);
+  cartList.innerHTML = '';
+
+  cart.forEach((item) => {
+    cartList.innerHTML += `<li>${item.name} - ${item.quantity} x ${item.price} pesos</li>`;
   });
-});
+
+  const totalPrice = calcularTotalAmount(cart);
+  cartTotal.textContent = `Total: ${totalPrice} pesos`;
+}
 
 checkoutButton.addEventListener('click', function () {
   if (cart.length === 0) {
     alert('Tu carrito está vacío');
   } else {
- // Abre la página de pago de Mercado Pago en una nueva ventana o pestaña
-    window.open('https://link.mercadopago.com.mx/laredotoner', '_blank');
+    // Muestra el modal para ingresar el monto
+    modal.style.display = 'block';
   }
 });
+
+confirmarMontoButton.addEventListener('click', function () {
+  const montoIngresado = parseFloat(montoInput.value);
+
+  if (isNaN(montoIngresado) || montoIngresado <= 0) {
+    alert('Ingresa un monto válido mayor a cero.');
+  } else {
+    // Oculta el modal
+    modal.style.display = 'none';
+
+    // Redirige al cliente a la página de pago de Mercado Pago con el monto ingresado
+    window.open(`https://link.mercadopago.com.mx/laredotoner/checkout?total=${montoIngresado}`, '_blank');
+  }
+});
+
+// Ejemplo de cómo agregar productos al carrito
+agregarProductoAlCarrito({ name: 'Producto 1', price: 10, quantity: 1 });
+agregarProductoAlCarrito({ name: 'Producto 2', price: 15, quantity: 2 });
+
 
 clearCartButton.addEventListener('click', function () {
   cart.length = 0; // Vacía el array del carrito
