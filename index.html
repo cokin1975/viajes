@@ -1,10 +1,12 @@
-
 <!DOCTYPE html>
 <html lang="es">
      <head>
      <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+          <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Roboto:wght@900&display=swap" rel="stylesheet">
 
    <script> type="text/javascript"
 var Tawk_API=Tawk_API||{}, Tawk_LoadStart=new Date();
@@ -25,15 +27,18 @@ s0.parentNode.insertBefore(s1,s0);
       background-color: #dd1c1c;
       padding: 10px;
       color: white;
-      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-    }
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1)
+      font-family:"https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap";
+      font-weight: bold;
+     }
 
     .logo {
-  font-size: 36px;
+    font-size: 36px;
   font-weight: bold;
   background: -webkit-linear-gradient(left, #087fff, #dfe2eb);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
+         
   
   transform: skewX(-10deg);
   transition: transform 0.3s ease;
@@ -61,18 +66,18 @@ s0.parentNode.insertBefore(s1,s0);
 
     .menu-icons {
       display: flex;
-      gap: 35px;
+      gap: 15px;
       
     }
 
     .menu-icons a {
-      display: inline-block
-      color: white
+      display: inline-block;
+      color: rgb(173, 62, 62);
       text-decoration: none;
       font-size: 18px;
       padding: 10px 20px ;
       border-radius: 4px;
-      background-color: white
+      background-color: rgb(65, 188, 236);
       color: #333;
       transition: background-image 0.3s ease;
       margin-bottom: 0px; 
@@ -136,11 +141,12 @@ s0.parentNode.insertBefore(s1,s0);
     .navbar a {
       float: left;
       display: block;
-      color: white;
+      color: rgb(248, 252, 255);
       text-align: center;
       padding: 14px 16px;
       text-decoration: none;
       border-radius: 8px;
+      font-family: "https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap";
     }
 
     .navbar a:hover {
@@ -265,70 +271,22 @@ body {
         padding: 10px; /* Reducir el espacio de relleno */
     }
 }
-
-
 #whatsapp-button {
-    background-color: #25d366; /* Color de WhatsApp */
-    color: #fff; /* Color del texto */
-    text-decoration: none; /* Quita la subraya del enlace */
-    padding: 10px 20px;
-    border-radius: 20px;
-    display: inline-block; /* Permite que el enlace se comporte como un botón */
-    transition: background 0.3s ease-in-out, transform 0.2s ease-in-out;
-}
-
-#whatsapp-button:hover {
-    background-color: #128C7E; /* Cambia el color al pasar el mouse */
-    transform: scale(1.05); /* Hace que el botón se agrande ligeramente al pasar el mouse */
-}
-
-#llamar{
- background-color:#00bb2d ;
+  background-color: #25d366; /* Color de fondo de WhatsApp */
   color: #fff; /* Color del texto */
   border: none;
   padding: 10px 20px;
-  border-radius: 20px;
+  border-radius: 10px;
   cursor: pointer;
   transition: background 0.3s ease-in-out, transform 0.2s ease-in-out;
 }
 
-.menu-icons {
-    text-align: center;
+#whatsapp-button:hover {
+  background: radial-gradient(circle, rgba(37, 211, 102, 0.5), transparent); /* Fondo radial al hacer hover */
+  transform: scale(1.05); /* Aumenta el tamaño ligeramente al hacer hover */
 }
 
-.llamar-header {
-    font-family: 'Montserrat', sans-serif; /* Fuente elegante, reemplaza 'Montserrat' con tu fuente deseada */
-    font-size: 32px; /* Tamaño de fuente */
-    color: #333; /* Color de texto */
-    margin-bottom: 20px; /* Espaciado inferior */
-}
-
-#phone-link {
-    display: inline-block;
-    text-decoration: none;
-    transition: background-image 0.3s ease;
-}
-
-#phone-link img {
-    max: width 50px; %; /* Ajusta el tamaño de la imagen al contenedor */
-
-}
-
-#phone-link:hover {
-    background-image: linear-gradient(to right, #007BFF, #00C6FF);
-    color: white;
-}
-#phone-link img {
-    max-width: 100%; /* La imagen se ajustará al ancho del contenedor por defecto */
-    height: 100px; /* La altura se ajustará automáticamente para mantener la proporción */
-    margin-right: 20px
-}
-
-@media ( min-width:769px) {
-    #phone-link img {
-        max-width: 80%; /* Reducir el ancho máximo de la imagen en pantallas más grandes */
-    }
-}
+.
 
 
   </style>
@@ -336,33 +294,23 @@ body {
 <div class="container">
   <!-- Contenido de tu página aquí -->
 
-<header>
+  <header>
     <div class="header">
   <div class="logo">Laredo Toner</div>
   <div class="search-box">
     <input type="text" placeholder="Buscar productos...">
   </div>
-  <div id="mi-div">
-    <h1>llamanos</h1>
-</div>
-          
-  <div class="menu-icons"></div>
-    <div class="menu-icons">
-        <a href="tel:+528671291566" id="phone-link">
-            <img src="telefono.webp" alt="Teléfono">
-        </a>
-        <h2 class="llamar-header"></h2>
-        
-    </div>
-   
-    <a href="https://wa.me/+528671291566" id="whatsapp-button">Whatsapp en vivo 24 hrs, Hola puedo ayudarte en cualquier duda</a>
-</div>
+  <div class="menu-icons">
+    <a href="tel:8671291566">Llamar a 8671291566</a>
+    
+<button id="whatsapp-button">Enviar mensaje de WhatsApp</button>
+<button id="llamar"></button>
 <p id="mensaje" class="d-none" <p></p>
 <p id="mensaje" class="d-none"></p>
+
   </div>
 </div>
 </header>
-
 
 <body>
   
@@ -473,11 +421,29 @@ body {
         </div>
       </div>
     </div>
+  </div>
+        
+<div id="product-container">
+    <div class="product-card">
+        <img class="product-image" src="3.png" alt="Product Image">
+        <div class="product-info">
+            <h2>HP 78A</h2>
+            <p>TONER AMERICANO </p>
+            <div class="product-price">390 pesos Iva Incluido en stock</div>
+            <div class="product-quantity">
+                Cantidad:
+                <input class="quantity-input" type="number" min="1" value="5">
+            </div>
         </div>
+        <button class="add-to-cart">Añadir al Carrito</button>
+    </div>
+</div>
+
    
     </body>
     <script>
-           const cart = [];
+     
+      const cart = [];
 const cartContainer = document.getElementById('cart-container');
 const cartTotal = document.getElementById('cart-total');
 const checkoutButton = document.getElementById('checkout');
@@ -537,62 +503,61 @@ if (popupWindow) {
   const popupDocument = popupWindow.document;
 
   // Agrega estilos CSS personalizados al contenido de la ventana emergente
-  popupDocument.head.innerHTML = ``;
+  popupDocument.head.innerHTML = `
     <style>
-  
-         body {
-    font-family: Arial, sans-serif;
-    background-color: #f0f0f0;
-    margin: 0;
-    padding: 0;
-    font-size: 20px;
-  }
+    
+      
+      body {
+        font-family: Arial, sans-serif;
+        background-color: #f0f0f0;
+        margin: 0;
+        padding: 0;
+        font-size: 20px;
+      }
 
-  .popup-container {
-    width: 400px;
-    max-width: 90%;
-    margin: 50px auto;
-    background-color: #fff;
-    border-radius: 10px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
-    padding: 20px;
-    text-align: center;
-  }
+      .popup-container {
+        width: 400px;
+        max-width: 90%;
+        margin: 50px auto;
+        background-color: #fff;
+        border-radius: 10px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+        padding: 20px;
+        text-align: center;
+      }
 
-  h1 {
-    font-size: 48px;
-    margin-bottom: 20px;
-  }
+      h1 {
+        font-size: 48px;
+        margin-bottom: 20px;
+      }
 
-  .product {
-    font-size: 18px;
-    margin-bottom: 10px;
-  }
+      .product {
+        font-size: 18px;
+        margin-bottom: 10px;
+      }
 
-  .total {
-    font-size: 20px;
-    font-weight: bold;
-    margin-top: 20px;
-  }
+      .total {
+        font-size: 20px;
+        font-weight: bold;
+        margin-top: 20px;
+      }
 
-  .checkout-button {
-    background-color: #007bff;
-    color: #fff;
-    padding: 10px 20px;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    font-size: 18px;
-    margin-top: 20px;
-  }
+      .checkout-button {
+        background-color: #007bff;
+        color: #fff;
+        padding: 10px 20px;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+        font-size: 18px;
+        margin-top: 20px;
+      }
 
-  .checkout-button:hover {
-    background-color: #0056b3;
-  }
-
-
-</style>
-  
+      .checkout-button:hover {
+        background-color: #0056b3;
+      }
+    </style>
+  `;
 
   // Agrega el contenido HTML al cuerpo de la ventana emergente
   popupDocument.body.innerHTML = popupContent;
@@ -618,7 +583,7 @@ document.getElementById('llamar').addEventListener('click', function() {
 });
 
 document.getElementById("whatsapp-button").addEventListener("click", function() {
-     var mensaje = "Hola, habla con Jorge de Laredo Toner . ¿En qué puedo ayudarte hoy?";
+     var mensaje = "Hola, habla con el Abogado Cesar Garcia. ¿En qué puedo ayudarte hoy?";
      var numeroTelefono = "8671291566"; // Reemplaza esto con el número de teléfono de WhatsApp al que deseas redirigir.
  
      // Construye la URL de WhatsApp con el número de teléfono y el mensaje.
@@ -640,8 +605,7 @@ clearCartButton.addEventListener('click', function () {
   // Actualizar la visualización del carrito
   updateCartDisplay();
 });
-        
-`         
+
       </script>
 
 </body>
