@@ -442,7 +442,6 @@ body {
    
     </body>
     <script>
-     
       const cart = [];
 const cartContainer = document.getElementById('cart-container');
 const cartTotal = document.getElementById('cart-total');
@@ -488,6 +487,10 @@ checkoutButton.addEventListener('click', function() {
       totalPrice += item.price * item.quantity;
     });
 
+    // Agregar el enlace a MercadoPago
+    popupContent += `<p>Para pagar, haz clic en el siguiente enlace:</p>`;
+    popupContent += `<a href="https://link.mercadopago.com.mx/laredotoner" target="_blank">Ir a MercadoPago</a>`;
+
     // Agregar el iframe y el total al contenido
     popupContent += `
       <div style="position: absolute; bottom: 20px; right: 20px;">
@@ -519,8 +522,8 @@ checkoutButton.addEventListener('click', function() {
       // Agregar estilos CSS personalizados al contenido de la ventana emergente
       popupDocument.head.innerHTML = `;
         
-      // Agregar el contenido al cuerpo de la ventana emergente
-      popupDocument.body.innerHTML = popupContent;
+    // Agregar el contenido al cuerpo de la ventana emergente
+      popupDocument.body.innerHTML = popupContent } 
     } else {
       alert("La ventana emergente no pudo abrirse. Asegúrate de habilitar ventanas emergentes en tu navegador.");
     }
@@ -528,7 +531,24 @@ checkoutButton.addEventListener('click', function() {
 });
 
     <style>
-    
+        a {
+  display: inline-block;
+  padding: 15px 30px; /* Aumentar el padding para hacer el cuadro más grande */
+  background-color: #ffcc00; /* Color de fondo */
+  color: #333; /* Color del texto */
+  text-decoration: none;
+  font-size: 18px; /* Tamaño de fuente aumentado */
+  font-weight: bold; /* Texto en negrita */
+  border-radius: 10px; /* Bordes redondeados */
+  transition: background-color 0.3s, color 0.3s;
+  margin-top: 20px; /* Espacio superior */
+}
+
+/* Estilo al pasar el mouse sobre el enlace */
+a:hover {
+  background-color: #333; /* Cambiar color de fondo al pasar el mouse */
+  color: #ffcc00; /* Cambiar color del texto al pasar el mouse */
+}
       
       body {
         font-family: Arial, sans-serif;
@@ -606,7 +626,7 @@ document.getElementById('llamar').addEventListener('click', function() {
 });
 
 document.getElementById("whatsapp-button").addEventListener("click", function() {
-     var mensaje = "Hola, habla con el Abogado Cesar Garcia. ¿En qué puedo ayudarte hoy?";
+     var mensaje = "Hola, habla con Jorge de Laredo Toner . ¿En qué puedo ayudarte hoy?";
      var numeroTelefono = "8671291566"; // Reemplaza esto con el número de teléfono de WhatsApp al que deseas redirigir.
  
      // Construye la URL de WhatsApp con el número de teléfono y el mensaje.
@@ -628,7 +648,7 @@ clearCartButton.addEventListener('click', function () {
   // Actualizar la visualización del carrito
   updateCartDisplay();
 });
-
+     
       </script>
 
 </body>
