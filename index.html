@@ -477,81 +477,148 @@ body {
    
     </body>
     <script>
-         
-         const cart = [];
-  const cartContainer = document.getElementById('cart-container');
-  const cartTotal = document.getElementById('cart-total');
-  const checkoutButton = document.getElementById('checkout');
+           const cart = [];
+const cartContainer = document.getElementById('cart-container');
+const cartTotal = document.getElementById('cart-total');
+const checkoutButton = document.getElementById('checkout');
 
-  document.querySelectorAll('.add-to-cart').forEach((button) => {
-    button.addEventListener('click', function() {
-      const productCard = this.closest('.product-card');
-      const productName = productCard.querySelector('h2').innerText;
-      const productPrice = parseInt(productCard.querySelector('.product-price').innerText, 10);
-      const quantityInput = productCard.querySelector('.quantity-input');
-      const quantity = parseInt(quantityInput.value, 10);
+document.querySelectorAll('.add-to-cart').forEach((button) => {
+  button.addEventListener('click', function() {
+    const productCard = this.closest('.product-card');
+    const productName = productCard.querySelector('h2').innerText;
+    const productPrice = parseInt(productCard.querySelector('.product-price').innerText, 10);
+    const quantityInput = productCard.querySelector('.quantity-input');
+    const quantity = parseInt(quantityInput.value, 10);
 
-      cart.push({
-        name: productName,
-        price: productPrice,
-        quantity: quantity
-      });
-
-      const itemCount = cart.reduce((total, product) => total + product.quantity, 0);
-      cartContainer.textContent = `Elementos en el carrito: ${itemCount}`;
-
-      const totalPrice = cart.reduce((total, product) => total + (product.price * product.quantity), 0);
-      cartTotal.textContent = `Total: ${totalPrice} pesos`;
+    cart.push({
+      name: productName,
+      price: productPrice,
+      quantity: quantity
     });
+
+    updateCartDisplay();
   });
-
-  checkoutButton.addEventListener('click', function() {
-    if (cart.length === 0) {
-      alert("Tu carrito está vacío");
-    } else {
-      alert("Procediendo al pago");
-      // Aquí puedes añadir lógica para realizar el checkout
-    }
-  });
-
-  const clearCartButton = document.getElementById('clear-cart');
-
-clearCartButton.addEventListener('click', function() {
-  cart.length = 0; // Vacía el array del carrito
-  cartContainer.textContent = "Elementos en el carrito: 0"; // Actualiza el contador de elementos
-  cartTotal.textContent = "Total: 0 pesos"; // Resetea el total
-  alert("El carrito ha sido vaciado"); // Muestra una alerta
 });
- 
+
+function updateCartDisplay() {
+  const itemCount = cart.reduce((total, product) => total + product.quantity, 0);
+  cartContainer.textContent = `Elementos en el carrito: ${itemCount}`;
+
+  const totalPrice = cart.reduce((total, product) => total + (product.price * product.quantity), 0);
+  cartTotal.textContent = `Total: ${totalPrice} pesos`;
+}
+
 checkoutButton.addEventListener('click', function() {
   if (cart.length === 0) {
     alert("Tu carrito está vacío");
   } else {
-    let printContent = "<h1>Resumen de Compra</h1>";
-
+    // Crear el contenido de la ventana emergente
+    let popupContent = "<h1>Resumen de Compra de Laredo Toner </h1>";
     let totalPrice = 0;
+
+    // Agregar los productos al contenido de la ventana emergente
     cart.forEach((item) => {
-      printContent += `${item.name} - ${item.quantity} x ${item.price} pesos<br>`;
+      popupContent += `${item.name} - ${item.quantity} x ${item.price} pesos<br>`;
       totalPrice += item.price * item.quantity;
     });
+    popupContent += `
+  <div style="position: absolute; bottom: 20; right:20 ;">
+    <iframe src="https://giphy.com/embed/MdSRZNm3XlZ7D7oH2q" width="150" height="150" frameBorder="0"></iframe>
+  </div>
+`;
+    
+    popupContent += `<br>Total: ${totalPrice} pesos`;
 
-    printContent += `<br>Total: ${totalPrice} pesos`;
+    // Crear una ventana emergente con el contenido
+const popupWindow = window.open("", "Resumen de Compra ", "width=400,height=400");
 
-    const printWindow = window.open("", "_blank");
-    printWindow.document.open();
-    printWindow.document.write(`<html><head><title>Resumen de Compra</title></head><body>${printContent}</body></html>`);
-    printWindow.document.close();
-    printWindow.onload = function() {
-      printWindow.print();
-    }
+// Verifica si la ventana emergente se ha abierto correctamente
+if (popupWindow) {
+  const popupDocument = popupWindow.document;
+
+  // Agrega estilos CSS personalizados al contenido de la ventana emergente
+  popupDocument.head.innerHTML = `
+    <style>
+    
+      
+      body {
+        font-family: Arial, sans-serif;
+        background-color: #f0f0f0;
+        margin: 0;
+        padding: 0;
+        font-size: 20px;
+      }
+
+      .popup-container {
+        width: 400px;
+        max-width: 90%;
+        margin: 50px auto;
+        background-color: #fff;
+        border-radius: 10px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+        padding: 20px;
+        text-align: center;
+      }
+
+      h1 {
+        font-size: 48px;
+        margin-bottom: 20px;
+      }
+
+      .product {
+        font-size: 18px;
+        margin-bottom: 10px;
+      }
+
+      .total {
+        font-size: 20px;
+        font-weight: bold;
+        margin-top: 20px;
+      }
+
+      .checkout-button {
+        background-color: #007bff;
+        color: #fff;
+        padding: 10px 20px;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+        font-size: 18px;
+        margin-top: 20px;
+      }
+
+      .checkout-button:hover {
+        background-color: #0056b3;
+      }
+    </style>
+  `;
+
+  // Agrega el contenido HTML al cuerpo de la ventana emergente
+  popupDocument.body.innerHTML = popupContent;
+}
+
+
+    // Redirigir a la página de pago después de un retraso
+    setTimeout(function() {
+      // Redirige a la página de pago de Mercado Libre en la misma ventana o pestaña
+      window.location.href = "https://link.mercadopago.com.mx/laredotoner"; // Reemplaza con la URL correcta
+    }, 5000); // Cambia el valor de 5000 (5 segundos) según tus necesidades
   }
 });
+
+
+
+
 document.getElementById('llamar').addEventListener('click', function() {
-    window.location.href = 'tel:+528671291566';
+    window.location.href = 'tel:8671291566';
 });
+document.getElementById('llamar').addEventListener('click', function() {
+    window.location.href = 'tel:8671291566';
+});
+
 document.getElementById("whatsapp-button").addEventListener("click", function() {
-     var mensaje = "Hola, habla con Jorge Glz Alanis . ¿En qué puedo ayudarte hoy?";
-     var numeroTelefono = "+528671291566"; // Reemplaza esto con el número de teléfono de WhatsApp al que deseas redirigir.
+     var mensaje = "Hola, habla con Jorge de Laredo Toner . ¿En qué puedo ayudarte hoy?";
+     var numeroTelefono = "8671291566"; // Reemplaza esto con el número de teléfono de WhatsApp al que deseas redirigir.
  
      // Construye la URL de WhatsApp con el número de teléfono y el mensaje.
      var url = "https://api.whatsapp.com/send?phone=" + encodeURIComponent(numeroTelefono) + "&text=" + encodeURIComponent(mensaje);
@@ -562,6 +629,17 @@ document.getElementById("whatsapp-button").addEventListener("click", function() 
      // Oculta el mensaje después de hacer clic en el botón de WhatsApp
      document.getElementById("mensaje").classList.add("d-none");
  });
+ // Obtener el botón "Vaciar Carrito" por su ID
+const clearCartButton = document.getElementById('clear-cart');
+
+// Agregar un evento click al botón "Vaciar Carrito"
+clearCartButton.addEventListener('click', function () {
+  // Vaciar el carrito (borrar todas las selecciones de compra)
+  cart.length = 0;
+  // Actualizar la visualización del carrito
+  updateCartDisplay();
+});
+        
          
       </script>
 
