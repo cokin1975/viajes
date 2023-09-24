@@ -478,7 +478,7 @@ checkoutButton.addEventListener('click', function() {
     alert("Tu carrito está vacío");
   } else {
     // Crear el contenido de la ventana emergente
-    let popupContent = "<h1>Resumen de Compra de Laredo Toner</h1>";
+    let popupContent = "<h2>Resumen de Compra de Laredo Toner</h2>";
     let totalPrice = 0;
 
     // Agregar los productos al contenido de la ventana emergente
@@ -531,28 +531,13 @@ checkoutButton.addEventListener('click', function() {
 });
 
     <style>
-@media screen and (max-width: 1024px) {
-  a {
-    padding: 10px 10px; /* Reducir el padding para hacer el cuadro más pequeño */
-    font-size: 16px; /* Reducir el tamaño de fuente */
-    border-radius: 5px; /* Reducir los bordes redondeados */
-  }
-}
-@media screen and (max-width: 1024px) {
-  h1 {
-    padding: 10px 10px; /* Reducir el padding para hacer el cuadro más pequeño */
-    font-size: 16px; /* Reducir el tamaño de fuente */
-    border-radius: 5px; /* Reducir los bordes redondeados */
-  }
-}
-    
-     /* Estilos para el título h1 */
-h1 {
+/* Estilos para el título h1 */
+h2 {
   font-size: 25px; /* Tamaño de fuente */
   font-weight: bold; /* Texto en negrita */
   text-align: center; /* Alinear el texto al centro */
-  margin: -17px 0; /* Margen superior e inferior */
-  padding: -8px; /* Relleno alrededor del título */
+  margin: -10px 0; /* Margen superior e inferior */
+  padding: -4px; /* Relleno alrededor del título */
   background-color: #ffcc00; /* Color de fondo */
   color: #333; /* Color del texto */
   border: 2px solid #333; /* Borde sólido */
@@ -561,13 +546,13 @@ h1 {
 }
 
 /* Estilo al pasar el mouse sobre el título */
-h1:hover {
+h2:hover {
   background-color: #333; /* Cambiar color de fondo al pasar el mouse */
   color: #ffcc00; /* Cambiar color del texto al pasar el mouse */
 }
         a {
   display: inline-block;
-  padding: 30px 60px; /* Aumentar el padding para hacer el cuadro más grande */
+  padding: 20px 40px; /* Aumentar el padding para hacer el cuadro más grande */
   background-color: #ffcc00; /* Color de fondo */
   color: #333; /* Color del texto */
   text-decoration: none;
