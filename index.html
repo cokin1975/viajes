@@ -517,12 +517,8 @@ checkoutButton.addEventListener('click', function() {
       const popupDocument = popupWindow.document;
 
       // Agregar estilos CSS personalizados al contenido de la ventana emergente
-      popupDocument.head.innerHTML = `
-        <style>
-          /* Estilos CSS personalizados aquí */
-        </style>
-      `;
-
+      popupDocument.head.innerHTML = `;
+        
       // Agregar el contenido al cuerpo de la ventana emergente
       popupDocument.body.innerHTML = popupContent;
     } else {
