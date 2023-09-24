@@ -479,7 +479,7 @@ checkoutButton.addEventListener('click', function() {
     alert("Tu carrito está vacío");
   } else {
     // Crear el contenido de la ventana emergente
-    let popupContent = "<h1>Resumen de Compra de Laredo Toner </h1>";
+    let popupContent = "<h1>Resumen de Compra de Laredo Toner</h1>";
     let totalPrice = 0;
 
     // Agregar los productos al contenido de la ventana emergente
@@ -487,23 +487,50 @@ checkoutButton.addEventListener('click', function() {
       popupContent += `${item.name} - ${item.quantity} x ${item.price} pesos<br>`;
       totalPrice += item.price * item.quantity;
     });
+
+    // Agregar el iframe y el total al contenido
     popupContent += `
-  <div style="position: absolute; bottom: 20; right:20 ;">
-    <iframe src="https://giphy.com/embed/MdSRZNm3XlZ7D7oH2q" width="150" height="150" frameBorder="0"></iframe>
-  </div>
-`;
-    
-    popupContent += `<br>Total: ${totalPrice} pesos`;
+      <div style="position: absolute; bottom: 20px; right: 20px;">
+        <iframe src="https://giphy.com/embed/MdSRZNm3XlZ7D7oH2q" width="150" height="150" frameBorder="0"></iframe>
+      </div>
+      <br>Total: ${totalPrice} pesos
+    `;
 
-    // Crear una ventana emergente con el contenido
-const popupWindow = window.open("", "Resumen de Compra ", "width=400,height=400");
+    // Obtener el ancho de la ventana del navegador
+    const windowWidth = window.innerWidth || document.documentElement.clientWidth || document.body.clientWidth;
 
-// Verifica si la ventana emergente se ha abierto correctamente
-if (popupWindow) {
-  const popupDocument = popupWindow.document;
+    // Definir el tamaño de la ventana emergente
+    let popupWidth = 400; // Tamaño predeterminado
+    let popupHeight = 400; // Tamaño predeterminado
 
-  // Agrega estilos CSS personalizados al contenido de la ventana emergente
-  popupDocument.head.innerHTML = `
+    // Verificar si el ancho de la ventana es menor que 360 (valor para dispositivos móviles)
+    if (windowWidth < 360) {
+      popupWidth = 360; // Cambia el ancho de la ventana
+      popupHeight = 740; // Cambia el alto de la ventana
+    }
+
+    // Crear una ventana emergente con el contenido y el tamaño personalizado
+    const popupWindow = window.open("", "Resumen de Compra", `width=${popupWidth},height=${popupHeight}`);
+
+    // Verificar si la ventana emergente se ha abierto correctamente
+    if (popupWindow) {
+      const popupDocument = popupWindow.document;
+
+      // Agregar estilos CSS personalizados al contenido de la ventana emergente
+      popupDocument.head.innerHTML = `
+        <style>
+          /* Estilos CSS personalizados aquí */
+        </style>
+      `;
+
+      // Agregar el contenido al cuerpo de la ventana emergente
+      popupDocument.body.innerHTML = popupContent;
+    } else {
+      alert("La ventana emergente no pudo abrirse. Asegúrate de habilitar ventanas emergentes en tu navegador.");
+    }
+  }
+});
+
     <style>
     
       
