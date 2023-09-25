@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+!DOCTYPE html>
 <html lang="es">
      <head>
      <meta charset="UTF-8">
@@ -21,19 +21,22 @@ s0.parentNode.insertBefore(s1,s0);
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap" rel="stylesheet">
   <style>
     .header {
+      position: fixed;
+      width: 100%; 
       display: flex;
       justify-content: space-between;
       align-items: center;
       background-color: #dd1c1c;
-      padding: 10px;
+      padding: 30px 15px ;
       color: white;
       box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1)
       font-family:"https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap";
       font-weight: bold;
-     }
+    top:30px;
+    }
 
     .logo {
-    font-size: 36px;
+      font-size: 36px;
   font-weight: bold;
   background: -webkit-linear-gradient(left, #087fff, #dfe2eb);
   -webkit-background-clip: text;
@@ -46,6 +49,7 @@ s0.parentNode.insertBefore(s1,s0);
 
 .logo:hover {
   transform: skewX(0deg);
+ 
 }
       
     
@@ -56,8 +60,9 @@ s0.parentNode.insertBefore(s1,s0);
     }
 
     .search-box input[type="text"] {
+     
       width: 90%;
-      padding: 10px;
+      padding: -5px;
       border: none;
       border-radius: 4px;
       float: left;
@@ -65,17 +70,19 @@ s0.parentNode.insertBefore(s1,s0);
     }
 
     .menu-icons {
+      
       display: flex;
       gap: 15px;
       
     }
 
     .menu-icons a {
+    
       display: inline-block;
       color: rgb(173, 62, 62);
       text-decoration: none;
       font-size: 18px;
-      padding: 10px 20px ;
+      padding: 5px 10px ;
       border-radius: 4px;
       background-color: rgb(65, 188, 236);
       color: #333;
@@ -84,17 +91,21 @@ s0.parentNode.insertBefore(s1,s0);
     }
 
     .menu-icons a:hover {
+     
       background-image: linear-gradient(to right, #007BFF, #00C6FF);
       color: white;
     }
     #product-container {
   max-width: 300px; /* Establece el ancho máximo del contenedor */
-  margin: 0 auto; /* Centra el contenedor en la pantalla */
-  padding: 10px; /* Agrega un espacio de relleno alrededor del contenedor */
-}
+  margin:  auto; /* Centra el contenedor en la pantalla */
+  padding: 20px -1px; /* Agrega un espacio de relleno alrededor del contenedor */
+   margin-top: 100px;
+
+  }
 
 .product-card {
   /* ... */
+
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
   transition: box-shadow 0.3s ease-in-out;
 }
@@ -122,7 +133,7 @@ s0.parentNode.insertBefore(s1,s0);
 }
 
 .product-info {
-  padding: 10px; /* Agrega espacio de relleno alrededor del contenido */
+  padding: 5px 30px; /* Agrega espacio de relleno alrededor del contenido */
 }
 
 .product-price {
@@ -149,27 +160,45 @@ s0.parentNode.insertBefore(s1,s0);
       background-color: #0056b3;
     }
     .navbar {
-      background-color: #ff0000; /* Rojo */
-      overflow: hidden;
-      font-size: 18px;
-      
-    }
+      padding: 2px 10px;
+      background-color: #333; /* Color de fondo del menú */
+  overflow: hidden; /* Para manejar el desbordamiento de elementos flotantes */
+  position: fixed; /* Fijar el menú en la parte superior */
+  top: 0; /* Fijar el menú en la parte superior */
+  width: 100%; /* Abarcar todo el ancho de la página */
+  z-index: 100; /* Z-index para colocar el menú encima de otros elementos */
+  text-align: center; /
+}
 
-    .navbar a {
-      float: left;
-      display: block;
-      color: rgb(248, 252, 255);
-      text-align: center;
-      padding: 14px 16px;
-      text-decoration: none;
-      border-radius: 8px;
-      font-family: "https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap";
-    }
+.navbar a {
+  float: left; /* Colocar elementos en línea */
+  display: block; /* Mostrar elementos como bloques */
+  color: rgb(248, 252, 255); /* Color del texto */
+  text-align: center; /* Alinear el texto al centro */
+  padding: 1px 15px; /* Relleno del enlace */
+  text-decoration: none; /* Quitar subrayado del enlace */
+  border-radius: 8px; /* Bordes redondeados */
+  font-family: "Poppins", sans-serif; /* Fuente personalizada */
+  text-align: center; /
 
-    .navbar a:hover {
-      background-color: #0000ff; /* Azul */
-      color: white;
-    }
+}
+
+/* Agregar estilos al menú activo o en estado hover (al pasar el ratón) */
+.navbar a:hover {
+  background-color: #555; /* Cambiar color de fondo al pasar el ratón */
+  color: #fff; /* Cambiar color del texto al pasar el ratón */
+}
+
+/* Resto de tus estilos de la página... */
+En este ejemplo, hemos agregado un position: fixed para fijar el menú en la parte superior de la página y un width: 100% para que abarque todo el ancho de la página. También se han aplicado otros estilos como el color de fondo, el color del texto, el relleno y otros estilos de enlace. Asegúrate de ajustar los colores y estilos según tus preferencias.
+
+Además, se ha añadido un estilo para el menú activo o en estado hover (al pasar el ratón), que cambia el color de fondo y el color del texto para dar retroalimentación visual al usuario.
+
+
+
+
+
+
     
     product-price {
       font-size: 1.2em;
@@ -235,7 +264,10 @@ position: fixed;
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2); /* Añade una sombra sutil */
 }
 body {
-            font-family: 'Arial', sans-serif;
+           
+  
+  
+  font-family: 'Arial', sans-serif;
           }
           .item {
             font-weight: normal;
@@ -258,6 +290,8 @@ body {
   }
 
   .product-info {
+    margin-top: 250px;
+    padding: px ;
     margin-left: 10px;
     flex-grow: 1;
   }
@@ -315,11 +349,37 @@ body {
 
 .#cart-container {
   position: fixed;
-  top: 20px; /* Ajusta la distancia desde la parte superior de la ventana */
+  top: 80px; /* Ajusta la distancia desde la parte superior de la ventana */
   right: 20px; /* Ajusta la distancia desde la derecha de la ventana */
 }
 
+.paypal-button {
+ position: fixed;
+ display: inline-block;
+  padding: 5px 10px;
+  background-color: #003087; /* Color de fondo de PayPal */
+  color: #ffffff; /* Color del texto */
+  font-size: 16px;
+  font-weight: bold;
+  text-decoration: none;
+  border-radius: 15px;
+  transition: background-color 0.3s;
+  margin-right: 0px; /* Espacio derecho para separar de otros elementos */
+  right: 50px
+  transform: translateY(-100%);
+bottom: 300px;
+}
 
+/* Estilo al pasar el mouse sobre el botón de PayPal */
+.paypal-button:hover {
+  background-color: #002366; /* Cambia el color de fondo al pasar el mouse */
+}
+
+/* Estilo de la imagen de PayPal */
+.paypal-button img {
+  vertical-align: right; /* Alinea la imagen verticalmente en el botón */
+  margin-right: 1px; /* Espacio entre la imagen y el texto */
+}
   </style>
 </head>
 <div class="container">
@@ -353,7 +413,10 @@ body {
         <a href="#Toner">Toner</a>
         <a href="#TelefonosCelulares">Telefonos Celulares</a>
       </div>
-      
+      <a href="https://www.paypal.me/laredotoner" target="_blank" class="paypal-button" id="paypal-button">
+        <img src="https://www.paypalobjects.com/webstatic/en_US/i/buttons/pp-acceptance-medium.png" alt="Pagar con PayPal">
+        Pagar con PayPal
+      </a>
      
 </head>
 <body>
@@ -451,9 +514,8 @@ body {
           <button class="add-to-cart">Añadir al Carrito</button>
         </div>
       </div>
-    </div>
-  </div>
-        
+    
+  
 <div id="product-container">
     <div class="product-card">
         <img class="product-image" src="3.png" alt="Product Image">
