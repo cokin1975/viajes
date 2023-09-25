@@ -94,10 +94,27 @@ s0.parentNode.insertBefore(s1,s0);
 }
 
 .product-card {
-  border: 1px solid #ddd; /* Añade un borde alrededor de la tarjeta del producto */
-  border-radius: 4px; /* Agrega esquinas redondeadas a la tarjeta */
-  margin-bottom: 20px; /* Espaciado entre las tarjetas de producto */
+  /* ... */
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  transition: box-shadow 0.3s ease-in-out;
 }
+
+.product-card:hover {
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
+}
+.add-to-cart {
+  background-color: #007bff;
+  color: #fff;
+  border: none;
+  padding: 10px 15px;
+  cursor: pointer;
+  transition: background-color 0.3s ease-in-out;
+}
+
+.add-to-cart:hover {
+  background-color: #0056b3;
+}
+
 
 .product-image {
   max-width: 100%; /* La imagen se ajustará al ancho de su contenedor */
@@ -178,21 +195,31 @@ s0.parentNode.insertBefore(s1,s0);
   cursor: pointer;
   transition: background-color 0.3s ease, transform 0.3s ease;
 }
-
-#checkout:hover {
+#checkout {
+  position: fixed;
+  bottom: 250px; /* Ajusta la distancia desde la parte inferior de la ventana */
+  right: 20px; /* Ajusta la distancia desde la derecha de la ventana */
+}
+#checkout:hover {right: 20px;
   background-color: blue;
   transform: scale(1.05); /* Hace el botón un poco más grande */
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2); /* Añade una sombra sutil */
 }
 
-#cart-container, #cart-total {
-  font-family: 'Poppins', sans-serif;
+#cart-infocontainer, #cart-total {
+position: fixed;
+  bottom: 405px; /* Ajusta la distancia desde la parte inferior de la ventana */
+  right: 5px; /* Ajusta la distancia desde la derecha de la ventana */
+    font-family: 'Poppins', sans-serif;
   font-weight: bold;
 }
 
 #clear-cart {
-  background-color: rgb(22, 21, 21);
-  color: white;
+    position: fixed;
+    background-color: rgb(22, 21, 21);
+    bottom: 300px; /* Ajusta la distancia desde la parte inferior de la ventana */
+  right: 25px;
+    color: white;
   padding: 12px 24px;
   border: none;
   border-radius: 8px;
@@ -286,7 +313,11 @@ body {
   transform: scale(1.05); /* Aumenta el tamaño ligeramente al hacer hover */
 }
 
-.
+.#cart-container {
+  position: fixed;
+  top: 20px; /* Ajusta la distancia desde la parte superior de la ventana */
+  right: 20px; /* Ajusta la distancia desde la derecha de la ventana */
+}
 
 
   </style>
